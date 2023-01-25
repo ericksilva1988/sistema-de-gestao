@@ -89,38 +89,38 @@
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Informe o nome" required />
                 </div>
                 <div class="col-lg-6 col-md-12 mt-3">
-                    <label for="apelido" class="form-label">Apelido:*</label>
+                    <label for="apelido" class="form-label">Apelido:</label>
                     <input type="text" class="form-control" id="apelido" name="apelido" placeholder="Informe o apelido"
-                        required />
+                         />
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-12 mt-3">
-                    <label for="telefone" class="form-label">Telefone:*</label>
+                    <label for="telefone" class="form-label">Telefone:</label>
                     <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Informe o telefone"
-                        required />
+                         />
                 </div>
                 <div class="col-lg-6 col-md-12 mt-3">
-                    <label for="rua" class="form-label">Rua:*</label>
+                    <label for="rua" class="form-label">Rua:</label>
                     <input type="text" class="form-control" id="ruarua" name="rua" placeholder="Informe o endereco"
-                        required />
+                         />
                 </div>
                 <div class="col-lg-2 col-md-12 mt-3">
-                    <label for="numero" class="form-label">Número:*</label>
-                    <input type="text" class="form-control" id="numero" name="numero" placeholder="Informe o Nº" required />
+                    <label for="numero" class="form-label">Número:</label>
+                    <input type="text" class="form-control" id="numero" name="numero" placeholder="Informe o Nº"  />
                 </div>
                 <div class="col-lg-3 col-md-12 mt-3">
                     <label for="cep" class="form-label">CEP</label>
                     <input type="text" class="form-control" id="cep" name="cep" placeholder="Informe o CEP" required />
                 </div>
                 <div class="col-lg-4 col-md-12 mt-3">
-                    <label for="cidade" class="form-label">Cidade:*</label>
-                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Informe a cidade" required />
+                    <label for="cidade" class="form-label">Cidade:</label>
+                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Informe a cidade"  />
                 </div>
                 <div class="col-lg-4 col-md-12 mt-3">
-                    <label for="estado" class="form-label">Estado:*</label>
+                    <label for="estado" class="form-label">Estado:</label>
                     
-                        <select class="form-select" aria-label="Selecione um fornecedor" id="estado" name="estado" required>
+                        <select class="form-select" aria-label="Selecione um fornecedor" id="estado" name="estado" >
                             <option value="estado">Selecione o Estado</option> 
                             <option value="ac">Acre</option> 
                             <option value="al">Alagoas</option> 

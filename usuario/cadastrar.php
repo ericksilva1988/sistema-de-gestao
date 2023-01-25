@@ -25,7 +25,10 @@
 
         $conexao = $database-> conecta_mysql();
 
-        $query = "insert into usuarios(nome,cargo,login,senha,`alterar-senha`,`usuario-visualizar`,`usuario-cadastrar`,`cliente-visualizar`,`cliente-cadastrar`,`caixa-visualizar`,`caixa-cadastrar`,`estoque-visualizar`,`estoque-cadastrar`) values ('$nome','$cargo','$login','$senha','$alterarSenha','$usuarioVisualizar','$usuarioCadastrar','$clienteVisualizar','$clienteCadastrar','$caixaVisualizar','$caixaCadastrar','$estoqueVisualizar','$estoqueCadastrar')";
+        $query = "insert into usuarios(nome,cargo,login,senha,`alterar-senha`,`usuario-visualizar`,`usuario-cadastrar`,
+        `cliente-visualizar`,`cliente-cadastrar`,`caixa-visualizar`,`caixa-cadastrar`,`estoque-visualizar`,`estoque-cadastrar`) 
+        values ('$nome','$cargo','$login','$senha','$alterarSenha','$usuarioVisualizar','$usuarioCadastrar','$clienteVisualizar',
+        '$clienteCadastrar','$caixaVisualizar','$caixaCadastrar','$estoqueVisualizar','$estoqueCadastrar')";
 
         if (mysqli_query ($conexao, $query)) {
 
@@ -91,9 +94,9 @@
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Informe o nome" required />
                 </div>
                 <div class="col-lg-6 col-md-12 mt-3">
-                    <label for="cargo" class="form-label">Cargo/Função:*</label>
+                    <label for="cargo" class="form-label">Cargo/Função:</label>
                     <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Informe qual o cargo ou função"
-                        required />
+                         />
                 </div>
             </div>
             <div class="row">

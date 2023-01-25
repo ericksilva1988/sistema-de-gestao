@@ -7,7 +7,7 @@
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
                                 
-        header('Location: listar.php');
+        header('Location: ../usuario/usuario.php');
 
         $login = $_SESSION['login'];
 
@@ -23,7 +23,7 @@
 
                 $conexao = $database-> conecta_mysql();
 
-                $query = "select * from usuarios order by id desc";
+                $query = "select * from fornecedor order by id desc";
 
                 $result = mysqli_query ($conexao, $query);
     
@@ -35,7 +35,9 @@
         if (!empty($_GET['pesquisar'])) {
 
             $termoDeBusca = $_GET['pesquisar'];
-            $queryBusca = "SELECT * FROM usuarios WHERE id LIKE '%$termoDeBusca%' or login LIKE '%$termoDeBusca%' or senha LIKE '%$termoDeBusca%' ORDER BY id DESC";         
+            $queryBusca = "SELECT * FROM fornecedores WHERE id LIKE '%$termoDeBusca%' or empresa LIKE '%$termoDeBusca%' 
+            or cnpj LIKE '%$termoDeBusca%' or representante LIKE '%$termoDeBusca%' ORDER BY id DESC";     
+
             $result = mysqli_query ($conexao, $queryBusca);
             
             $msg = "Registros Encontrados";
@@ -58,7 +60,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="usuario.css">
-    <title>Cadastro de usuário</title>
+    <title>Cadastro de Fornecedor</title>
 </head>
 
 <body>
@@ -78,11 +80,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="listar.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../usuario/usuario.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a data-bs-toggle='modal' data-bs-target='#modalSair'class="nav-link" href="../sair.php">Sair</a>
                     </li>
+                    
                 </ul>
                 <p><?php  echo "Bem Vindo: *" ?></p> <p class=><b><?php echo $_SESSION['login']; ?></b></p>
             </div>
@@ -121,53 +124,103 @@
 
 
     <div class="container mt-5">
-        <h2 class="mb-4">Acesso as opções do sistema</h2>
+        <h2 class="mb-4">Lista de Fornecedores</h2>
         <div class="row mb-4">
             <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="listar.php" class="btn btn-primary btn-lg">Lista de Usuários</a>
+                <a href="cadastrar.php" class="btn btn-primary">Cadastrar</a>
             </div>
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="cadastrar.php" class="btn btn-primary btn-lg">Cadastrar Usuário</a>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="permissoes.php" class="btn btn-primary btn-lg">Suas Permissões</a>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="../produto/cadastrar.php" class="btn btn-secondary btn-lg">Novo Produto</a>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="../produto/lista.php" class="btn btn-secondary btn-lg">Lista de Produtos</a>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="#" class="btn btn-secondary btn-lg">Produtos em Falta</a>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="../cliente/lista.php" class="btn btn-success btn-lg">Lista de Clientes</a>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="../cliente/cadastrar.php" class="btn btn-success btn-lg">Cadastrar Cliente</a>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="#" class="btn btn-success btn-lg">Fiados Vencidos</a>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="../fornecedor/lista.php" class="btn btn-warning btn-lg">Lista de Fornecedores</a>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="../fornecedor/cadastrar.php" class="btn btn-warning btn-lg">Cadastrar Fornecedores</a>
+            <div class="col-md-5 col-sm-12">
+                <input class="form-control" type="search" placeholder="Buscar produto" id="pesquisar" name="pesquisar" aria-label="Search">
             </div>
             
-            
-            
+            <div class="col-md-3 col-lg-2 mb-2">
+                <button onclick="searchData()"  class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </button>
+            </div>
+        </div>
+        <p><?php echo $msg; ?></p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Empresa</th>
+                    <th scope="col">CNPJ</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Representação</th>
+                    <th scope="col">Representante</th>
+                    <th scope="col">Observações</th>
+                    <th scope="col">Ações</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                
+                <?php 
+
+                        while($dados_fornecedor = mysqli_fetch_assoc($result)) {
+                            
+                            echo "<tr>";
+                            echo "<td>" . $dados_fornecedor['id'] . "</td>";
+                            echo "<td>" . $dados_fornecedor['empresa'] . "</td>";
+                            echo "<td>" . $dados_fornecedor['cnpj'] . "</td>";
+                            echo "<td>" . $dados_fornecedor['telefone'] . "</td>";
+                            echo "<td>" . $dados_fornecedor['email'] . "</td>";
+                            echo "<td>" . $dados_fornecedor['representacao'] . "</td>";
+                            echo "<td>" . $dados_fornecedor['representante'] . "</td>";
+                            echo "<td>" . $dados_fornecedor['observacoes'] . "</td>";
+                                                        
+                            
+                            echo "<td>
+                                <a href='formulario.php?id=$dados_fornecedor[id]'>
+                                  <button class='btn btn-light'>Editar</button>
+                                </a>
+                                
+                                <a data-bs-toggle='modal' data-bs-target='#modalPadrao' 
+                                onclick='passaDadosModal($dados_fornecedor[id], `$dados_fornecedor[empresa]`)'>
+                                
+                                <button class='btn btn-danger'>Excluir</button>
+                                </a>
+
+                            </td>";
+                            echo "</tr>";
+                        }
+
+                ?>
+            </tbody>
+        </table>
 
 
+        <!-- Modal -->
+        <div class="modal fade" id="modalPadrao" tabindex="-1" aria-labelledby="modalPadrao" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalPadrao">Atenção!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Tem certeza que deseja excluir o usuário <strong id="nome-usuario"></strong>?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                        <a href="" class="btn btn-danger" id="linkExcluir">Excluir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php  
+
+?>
     <!-- /Modal -->
 
         <script type="text/javascript">
     
-            function passaDadosModal(id, nome){
+            function passaDadosModal(id, empresa){
                
-                document.querySelector('#nome-usuario').innerText=nome;
+                document.querySelector('#nome-usuario').innerText=empresa;
                 document.querySelector('#linkExcluir').href="excluir.php?id="+id;
                                 
             }
