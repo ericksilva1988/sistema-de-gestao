@@ -147,7 +147,7 @@
                     <th scope="col">Telefone</th>
                     <th scope="col">Endereço</th>
                     <th scope="col">Ponto de Referência</th>
-                    <th scope="col">Vender Fiado</th>
+                    <th scope="col">Fiado</th>
                     <th scope="col">Ação</th>
 
                 </tr>
@@ -165,20 +165,11 @@
                             echo "<td>" . $dados_cliente['telefone'] . "</td>";
                             echo "<td>" . $dados_cliente['rua'] . "</td>";
                             echo "<td>" . $dados_cliente['referencia'] . "</td>";
+                            $fiado = $dados_cliente['fiado'] == 1 ? "SIM" : "NÃO";
+                            echo "<td>" . $fiado . "</td>";
+                                
                             
-                                if ($fiado = $dados_cliente['fiado']) {
-                            
-                                    if ($fiado = 1) {
-                                        
-                                        $respo = 'SIM';
 
-                                        }else{
-
-                                           $respo = 'SIM';
-                                        }
-                                }
-                            
-                            echo "<td>" . $respo . "</td>";
                                                         
                             echo "<td>
                                 <a href='../cliente/formulario.php?id=$dados_cliente[id]'>

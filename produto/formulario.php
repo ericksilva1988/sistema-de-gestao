@@ -15,6 +15,7 @@
 
         $result = mysqli_query ($conexao, $query);
 
+        
 
         if($result->num_rows > 0) {
 
@@ -158,19 +159,9 @@
                     <label for="fornecedor" class="form-label">Fornecedor:</label>
                     <select class="form-select" aria-label="Selecione um fornecedor" id="fornecedor" name="fornecedor">
                         <option selected value="" selected disabled="disabled" hidden>Selecione um fornecedor</option>
-
-                        <?php while ($dadosFornecedor = mysql_fetch_array($result)) { 
-
-                            $fornecedor = $dadosFornecedor['fornecedor'];
-
-                            ?>
-                        
-                        
-                        <option value="1" <?php echo $fornecedor == '1' ? 'checked' : '' ?>>Fornecedor 1</option>
-                        <option value="2" <?php echo $fornecedor == '2' ? 'checked' : '' ?>>Fornecedor 2</option>
-                        <option value="3" <?php echo $fornecedor == '3' ? 'checked' : '' ?>>Fornecedor 3</option>
-
-                        <?php } ?>
+                        <option value="1" <?php echo $fornecedor == '1' ? 'selected' : '' ?>>Fornecedor 1</option>
+                        <option value="2" <?php echo $fornecedor == '2' ? 'selected' : '' ?>>Fornecedor 2</option>
+                        <option value="3" <?php echo $fornecedor == '3' ? 'selected' : '' ?>>Fornecedor 3</option>
                     </select>
                 </div>
             </div>
