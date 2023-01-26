@@ -34,7 +34,7 @@
             echo 'Ops, Alguma coisa aconteceu de errado';
         }
     }
-
+        
 ?>
 
 <!DOCTYPE html>
@@ -148,10 +148,36 @@
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="fornecedor" class="form-label">Fornecedor:</label>
                     <select class="form-select" aria-label="Selecione um fornecedor" id="fornecedor" name="fornecedor">
-                        <option selected>Selecione um fornecedor</option>
-                        <option value="1">Fornecedor 1</option>
-                        <option value="2">Fornecedor 2</option>
-                        <option value="3">Fornecedor 3</option>
+                        <option selected value="" selected disabled="disabled" hidden>Selecione um fornecedor</option>
+
+                    <?php  
+
+                        require_once('../conexao.php');
+
+                        $database = new db();
+
+                        $conexao = $database-> conecta_mysql();
+
+                        $queryFonecedor = "select * from fornecedor order by id desc";
+
+                        $resultado = mysqli_query ($conexao, $queryFonecedor);
+
+                        //print_r($resultado);
+
+                        
+
+                            while($dadosDoProduto = mysqli_fetch_assoc($resultado)) { 
+
+                                    $id = $dadosDoProduto['id'];
+                                    $empresa = $dadosDoProduto['empresa'];
+
+                    ?>
+                    
+                            <option value="<?php echo $id; ?>"<?php echo $empresa == $id ? 'selected' : '' ?>><?php echo $empresa; ?></option>    
+
+                   
+                       <?php }  ?>
+                            
                     </select>
                 </div>
             </div>
