@@ -34,13 +34,26 @@ class retornaDados
 		return $result;
 	}
 
-	public function pesquisar($tabela, $termoDeBusca, $coluna1, $coluna2, $coluna3)
+	public function pesquisar($tabela, $termoDeBusca, $id, $coluna1, $coluna2)
 	{
 		$database = new db();
 		$conexao = $database->conecta_mysql();
-		$query = "select * FROM `$tabela` WHERE `$coluna1` LIKE `%$termoDeBusca%` or `$coluna2` LIKE `%$termoDeBusca%` or `$coluna3` LIKE `%$termoDeBusca%` ORDER BY `$coluna1` DESC";
+		$query = "select * FROM `$tabela` WHERE $id = $termoDeBusca or $coluna1 LIKE '%$termoDeBusca%' or $coluna2 LIKE '%$termoDeBusca%' ORDER BY $id DESC";
 		$result = mysqli_query($conexao, $query);
 		return $result;
+	}
+
+	public function deletaUm($tabela, $id)
+	{
+		$database = new db();
+		$conexao = $database->conecta_mysql();
+		$selectItem = "select * from `$tabela` where id=$id";
+		$result = mysqli_query($conexao, $selectItem);
+
+		if ($result->num_rows > 0) {
+			$deleteItem = "delete from `$tabela` where id=$id";
+			mysqli_query($conexao, $deleteItem);
+		}
 	}
 }
 
