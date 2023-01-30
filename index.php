@@ -17,7 +17,7 @@
             <img src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-4.png" class="card-img-top"
                 alt="logo">
             <div class="card-body">
-                <form action= "validarLogin.php" method="POST">
+                <form action= "sessao/validarLogin.php" method="POST">
                     <div class="mb-3">
                         <label for="login" class="form-label">Login</label>
                         <input type="text" class="form-control" id="login" name="login" aria-describedby="help">

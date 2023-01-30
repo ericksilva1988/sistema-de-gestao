@@ -1,0 +1,51 @@
+crud
+    usuario
+        criar.php
+        recuperar.php
+        editar.php
+        deletar.php
+    fornecedor
+        criar.php
+        recuperar.php
+        editar.php
+        deletar.php
+    produto
+        criar.php
+        recuperar.php
+        editar.php
+        deletar.php
+    cliente
+        criar.php
+        recuperar.php
+        editar.php
+        deletar.php
+views
+    usuario
+        listar.php
+        cadastrar.php
+        editar.php
+    fornecedor
+        listar.php
+        cadastrar.php
+        editar.php
+    produto
+        listar.php
+        cadastrar.php
+        editar.php
+    cliente
+        listar.php 
+        cadastrar.php
+        editar.php
+componentes
+    header.php
+banco
+    conexao.php
+    migrations.php
+sessao
+    iniciarSessao.php
+    validarLogin.php
+    encerrarSessao.php
+componentes
+	head.php
+index.php
+README.md
