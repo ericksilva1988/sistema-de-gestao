@@ -34,6 +34,8 @@
                 $caixaCadastrar = $dadosDoUsuario["caixa-cadastrar"];
                 $estoqueVisualizar = $dadosDoUsuario["estoque-visualizar"];
                 $estoqueCadastrar = $dadosDoUsuario["estoque-cadastrar"];
+                $admin = $dadosDoUsuario["eh-admin"];
+                $master = $dadosDoUsuario["eh-master"];
 
 
 

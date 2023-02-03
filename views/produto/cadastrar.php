@@ -71,11 +71,11 @@
                             while($dadosDoProduto = mysqli_fetch_assoc($resultado)) { 
 
                                     $id = $dadosDoProduto['id'];
-                                    $empresa = $dadosDoProduto['empresa'];
-
+                                    $empresa1 = $dadosDoProduto['empresa'];
+                                    $empresa = $dadosDoProduto['empresa'] == $id ? "selected" : "";
                     ?>
                     
-                            <option value="<?php echo $id; ?>"<?php echo $empresa == $id ? 'selected' : '' ?>><?php echo $empresa; ?></option>    
+                            <option value="<?php echo $id; ?>"<?php $empresa = $dadosDoProduto['empresa'] == $id ? "selected" : "";?>><?php echo $empresa1; ?></option>    
 
                    
                        <?php }  ?>

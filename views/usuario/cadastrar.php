@@ -39,7 +39,23 @@
                 </div>
             </div>
             <hr class="mt-5 mb-4">
-            <h4>Permissões</h4>
+            <h4>Tipo de Usuário</h4>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-12 mt-3">
+                    <label for="" class="form-label">Identifique o tipo</label>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="eh-admin" id="eh-admin">
+                        <label class="form-check-label" for="eh-admin">É Admin</label>
+                    </div>
+                    <div class="form-check form-switch mt-2">
+                        <input class="form-check-input" type="checkbox" name="eh-master" id="eh-master">
+                        <label class="form-check-label" for="eh-master">É Master</label>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mt-5 mb-4">
+            <h4>Permissões de Acesso</h4>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-12 mt-3">
                     <label for="" class="form-label">Usuário</label>

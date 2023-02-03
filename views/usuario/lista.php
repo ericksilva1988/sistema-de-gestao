@@ -38,6 +38,9 @@
                     <th scope="col">Id</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Login</th>
+                    <th scope="col">Senha</th>
+                    <th scope="col">É admin</th>
+                    <th scope="col">É master</th>
 
                     <th scope="col">Ação</th>
 
@@ -54,7 +57,12 @@
                     echo "<td>" . $user_data['nome'] . "</td>";
                     echo "<td>" . $user_data['login'] . "</td>";
                     echo "<td>" . $user_data['senha'] . "</td>";
-
+                    //echo "<td>" . $user_data['admin'] . "</td>";
+                    //echo "<td>" . $user_data['master'] . "</td>";
+                    $admin = $user_data['eh-admin'] == 1 ? "SIM" : "NÃO";
+                            echo "<td>" . $admin . "</td>";
+                    $master = $user_data['eh-master'] == 1 ? "SIM" : "NÃO";
+                            echo "<td>" . $master . "</td>";
                     echo "<td>
                                 <a href='../../views/usuario/recuperar.php?id=$user_data[id]'>
                                   <button class='btn btn-light'>Editar</button>

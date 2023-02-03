@@ -4,7 +4,7 @@
 
 	if (isset($_POST['submit']) && !empty($_POST['login']) && !empty($_POST['senha'])) {
 		
-
+		
 		include_once('../banco/conexao.php');
 
 		$login = $_POST['login'];

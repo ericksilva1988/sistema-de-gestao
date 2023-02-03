@@ -42,6 +42,9 @@
                     <li class="nav-item">
                         <a class="btn btn-outline-warning" aria-current="page" href="../views/cliente/home.php">CLIENTE</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-dark" aria-current="page" href="../views/empresa/home.php">EMPRESA</a>
+                    </li>
                     
                     </li>
                     <li class="nav-item">

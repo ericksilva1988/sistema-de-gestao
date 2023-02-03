@@ -47,7 +47,9 @@
                 <div class="col-lg-4 col-md-12 mt-3">
                     <label for="estado" class="form-label">Estado:</label>
                     
-                        <select class="form-select" aria-label="Selecione um fornecedor" id="estado" name="estado" >
+                        <select class="form-select" aria-label="Selecione um estado" id="estado" name="estado" >
+                            <option selected value="" selected disabled="disabled" hidden>Estado</option>
+                                                   
                             <option value="estado">Selecione o Estado</option> 
                             <option value="ac">Acre</option> 
                             <option value="al">Alagoas</option> 
