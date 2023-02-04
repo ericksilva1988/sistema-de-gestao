@@ -30,9 +30,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary" aria-current="page" href="../views/usuario/home.php">USUÁRIO</a>
-                    </li>
+                    
+                    <?php 
+
+                         
+
+                        if ($_SESSION['usuario-visualizar']) { ?>
+                            
+                            <li class="nav-item">
+                                <a class="btn btn-outline-primary" aria-current="page" href="../views/usuario/home.php">USUÁRIO</a>
+                            </li>
+
+                            
+                    <?php } ?>
+                    
+
+                    
                     <li class="nav-item">
                         <a class="btn btn-outline-secondary" aria-current="page" href="../views/produto/home.php">PRODUTO</a>
                     </li>

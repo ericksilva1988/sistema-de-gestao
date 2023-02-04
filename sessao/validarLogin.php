@@ -54,6 +54,10 @@
 				$_SESSION['estoque-cadastrar'] = $row['estoque-cadastrar'];
 				$_SESSION['alterar-senha'] = $row['alterar-senha'];
 
+				$_SESSION['id-empresa'] = $row['id-empresa'];
+				$_SESSION['eh-master'] = $row['eh-master'];
+				$_SESSION['eh-admin'] = $row['eh-admin'];
+
 				header('Location: ../sessao/usuario.php');
 
 

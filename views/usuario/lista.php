@@ -4,15 +4,30 @@
 
 <?php include"../../componentes/usuario/head.php"; ?>
 
+    <?php 
+
+         if (!$_SESSION['usuario-visualizar']) {
+            header('Location: ../../sessao/usuario.php');
+        }
+    ?>
+    
+
     <!-- /Menu superior-->
 
 
     <div class="container mt-5">
         <h2 class="mb-4">Listar usuários</h2>
         <div class="row mb-4">
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="cadastrar.php" class="btn btn-primary">Cadastrar</a>
-            </div>
+            <?php 
+
+                if ($_SESSION['usuario-cadastrar']) { ?>
+
+                <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
+                    <a href="cadastrar.php" class="btn btn-primary">Cadastrar</a>
+                </div>
+
+            <?php } ?>
+
             <div class="col-md-5 col-sm-12">
                 <input class="form-control" type="search" placeholder="Buscar usuário" id="pesquisar" name="pesquisar"
                     aria-label="Search">
@@ -41,9 +56,9 @@
                     <th scope="col">Senha</th>
                     <th scope="col">É admin</th>
                     <th scope="col">É master</th>
-
-                    <th scope="col">Ação</th>
-
+                    <?php if ($_SESSION['usuario-cadastrar']) { ?>
+                        <th scope="col">Ação</th>
+                    <?php } ?>
                 </tr>
             </thead>
             <tbody>
@@ -63,15 +78,19 @@
                             echo "<td>" . $admin . "</td>";
                     $master = $user_data['eh-master'] == 1 ? "SIM" : "NÃO";
                             echo "<td>" . $master . "</td>";
-                    echo "<td>
-                                <a href='../../views/usuario/recuperar.php?id=$user_data[id]'>
-                                  <button class='btn btn-light'>Editar</button>
-                                </a>
-                                <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($user_data[id], `$user_data[nome]`)'>
-                                    <button class='btn btn-danger'>Excluir</button>
-                                </a>
+                    
+                            if ($_SESSION['usuario-cadastrar']) {
 
-                            </td>";
+                                echo "<td> 
+                                    <a href='../../views/usuario/recuperar.php?id=$user_data[id]'>
+                                        <button class='btn btn-light'>Editar</button>
+                                    </a>
+                                    <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($user_data[id], `$user_data[nome]`)'>
+                                        <button class='btn btn-danger'>Excluir</button>
+                                    </a>
+
+                                </td>";
+                            }   
                     echo "</tr>";
                 }
 

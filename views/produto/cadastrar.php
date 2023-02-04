@@ -72,7 +72,7 @@
 
                                     $id = $dadosDoProduto['id'];
                                     $empresa1 = $dadosDoProduto['empresa'];
-                                    $empresa = $dadosDoProduto['empresa'] == $id ? "selected" : "";
+                                    //$empresa = $dadosDoProduto['empresa'] == $id ? "selected" : "";
                     ?>
                     
                             <option value="<?php echo $id; ?>"<?php $empresa = $dadosDoProduto['empresa'] == $id ? "selected" : "";?>><?php echo $empresa1; ?></option>    
@@ -81,6 +81,9 @@
                        <?php }  ?>
                             
                     </select>
+                    <input type="hidden" name="empresa" id="empresa" value="<?php echo $_SESSION['id-empresa']; ?>">
+
+
                 </div>
             </div>
             <div class="row">

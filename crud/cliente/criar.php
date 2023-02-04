@@ -13,8 +13,11 @@
         $cidade = $_POST['cidade'];
         $estado = $_POST['estado'];
         $referencia = $_POST['referencia'];
+
                         
         $fiado = isset($_POST["fiado"]) ? 1 : 0;
+
+        $idEmpresa = $_POST['empresa'];
         
        
        
@@ -23,7 +26,7 @@
 
         $conexao = $database-> conecta_mysql();
 
-        $query = "insert into cliente(nome,apelido,telefone,rua,numero,cep,cidade,estado,referencia,fiado) values ('$nome','$apelido','$telefone','$rua','$numero','$cep','$cidade','$estado','$referencia','$fiado')";
+        $query = "insert into cliente(nome,apelido,telefone,rua,numero,cep,cidade,estado,referencia,fiado,`id-empresa`) values ('$nome','$apelido','$telefone','$rua','$numero','$cep','$cidade','$estado','$referencia','$fiado','$idEmpresa')";
 
         if (mysqli_query ($conexao, $query)) {
 

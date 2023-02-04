@@ -15,6 +15,7 @@
         $modelo = $_GET['modelo'];
         $peso = $_GET['peso'];
         $observacoes = $_GET['observacoes'];
+        $idEmpresa = $_GET['empresa'];
                 
         //$estoqueCadastrar = isset($_GET["estoque-cadastrar"]) ? 1 : 0;
                       
@@ -22,7 +23,7 @@
 
         $conexao = $database-> conecta_mysql();
 
-        $query = "insert into produtos(descricao,custo,venda,`estoque-minimo`,`estoque-atual`,`codigo-barra`,fornecedor,marca,modelo,peso,observacoes) values ('$descricao','$custo','$venda','$estoqueMinimo','$estoqueAtual','$codigoBarra','$fornecedor','$marca','$modelo','$peso','$observacoes')";
+        $query = "insert into produtos(descricao,custo,venda,`estoque-minimo`,`estoque-atual`,`codigo-barra`,fornecedor,marca,modelo,peso,observacoes,`id-empresa`) values ('$descricao','$custo','$venda','$estoqueMinimo','$estoqueAtual','$codigoBarra','$fornecedor','$marca','$modelo','$peso','$observacoes','$idEmpresa')";
 
         if (mysqli_query ($conexao, $query)) {
 

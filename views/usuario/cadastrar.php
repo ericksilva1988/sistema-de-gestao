@@ -2,6 +2,18 @@
 
 <?php include"../../componentes/usuario/head.php"; ?>
 
+    <?php 
+
+        // $podeAcessar = $_SESSION['eh-master'] || $_SESSION['eh-admin'] ? 1 : 0;
+
+        // if (!$podeAcessar) {
+        //     header('Location: ../../sessao/usuario.php');
+        // }
+        if (!$_SESSION['usuario-cadastrar']) {
+            header('Location: ../../sessao/usuario.php');
+        }
+    ?>
+
     <!-- /Menu superior-->
 
     <div class="container mt-5">
@@ -38,21 +50,64 @@
                     </div>
                 </div>
             </div>
-            <hr class="mt-5 mb-4">
-            <h4>Tipo de Usuário</h4>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12 mt-3">
-                    <label for="" class="form-label">Identifique o tipo</label>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" name="eh-admin" id="eh-admin">
-                        <label class="form-check-label" for="eh-admin">É Admin</label>
+            
+           
+            <?php 
+
+                if ($_SESSION['eh-master']) { ?>
+                    <hr class="mt-5 mb-4">
+
+                    <h4>Tipo de Usuário</h4>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12 mt-3">
+                            <label for="" class="form-label">Identifique o tipo</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" name="eh-admin" id="eh-admin">
+                                <label class="form-check-label" for="eh-admin">É Admin</label>
+                            </div>
+                            <div class="form-check form-switch mt-2">
+                                <input class="form-check-input" type="checkbox" name="eh-master" id="eh-master">
+                                <label class="form-check-label" for="eh-master">É Master</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" aria-label="Selecione uma empresa" id="empresa" name="empresa">
+                                <option selected value="" selected disabled="disabled" hidden>Selecione uma empresa</option>
+                                
+                                <?php 
+
+                                    require_once('../../banco/conexao.php');
+
+                                    $database = new db();
+
+                                    $conexao = $database-> conecta_mysql();
+
+                                    $queryEmpresa = "select * from empresa order by id desc";
+
+                                    $resultado = mysqli_query ($conexao, $queryEmpresa);
+
+                                    while ($dadosEmpresa = mysqli_fetch_assoc($resultado)) {
+                                        
+                                        $id = $dadosEmpresa['id'];
+                                        $empresa = $dadosEmpresa['empresa'];
+
+                                    ?>
+
+                                    <option value="<?php echo $id; ?>"><?php echo $empresa; ?></option>
+
+                                 <?php } ?>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-check form-switch mt-2">
-                        <input class="form-check-input" type="checkbox" name="eh-master" id="eh-master">
-                        <label class="form-check-label" for="eh-master">É Master</label>
-                    </div>
-                </div>
-            </div>
+                    
+            <?php }  
+
+                else{ ?>
+
+                    <input type="hidden" name="empresa" id="empresa" value="<?php echo $_SESSION['id-empresa']; ?>">
+                
+                <?php } ?>
+        
 
             <hr class="mt-5 mb-4">
             <h4>Permissões de Acesso</h4>
