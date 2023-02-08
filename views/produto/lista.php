@@ -11,9 +11,12 @@
     <div class="container mt-5">
         <h2 class="mb-4">Listar de produtos</h2>
         <div class="row mb-4">
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="cadastrar.php" class="btn btn-primary">Cadastrar</a>
-            </div>
+            <?php
+                if ($_SESSION['estoque-cadastrar']) { ?>
+                    <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
+                        <a href="cadastrar.php" class="btn btn-primary">Cadastrar</a>
+                    </div>
+            <?php } ?>
             <div class="col-md-5 col-sm-12">
                 <input class="form-control" type="search" placeholder="Buscar produto" id="pesquisar" name="pesquisar" aria-label="Search">
             </div>
@@ -40,7 +43,10 @@
                     <th scope="col">modelo</th>
                     <th scope="col">Peso</th>
                     <th scope="col">Obs</th>
-                    <th scope="col">Ações</th>
+                    <?php
+                        if ($_SESSION['estoque-cadastrar']) { ?>
+                            <th scope="col">Ações</th>
+                    <?php } ?>
 
                 </tr>
             </thead>
@@ -58,22 +64,29 @@
                             echo "<td>" . $dados_produto['estoque-minimo'] . "</td>";
                             echo "<td>" . $dados_produto['estoque-atual'] . "</td>";
                             echo "<td>" . $dados_produto['codigo-barra'] . "</td>";
-                            echo "<td>" . $dados_produto['fornecedor'] . "</td>";
+                            
+                            while ($dados_fornecedor = mysqli_fetch_assoc($resultado)) {
+                                if ($dados_produto['fornecedor'] == $dados_fornecedor['id']) {
+                                        echo "<td>" . $dados_fornecedor['empresa'] . "</td>";
+                                }
+                                
+                            }
+                            
                             echo "<td>" . $dados_produto['marca'] . "</td>";
                             echo "<td>" . $dados_produto['modelo'] . "</td>";
                             echo "<td>" . $dados_produto['peso'] . "</td>";
                             echo "<td>" . $dados_produto['observacoes'] . "</td>";
                             
-                            
-                            echo "<td>
-                                <a href='../../views/produto/recuperar.php?id=$dados_produto[id]'>
-                                  <button class='btn btn-light'>Editar</button>
-                                </a>
-                                <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_produto[id], `$dados_produto[descricao]`)'>
-                                    <button class='btn btn-danger'>Excluir</button>
-                                </a>
+                                if ($_SESSION['estoque-cadastrar']) { 
+                                    echo "<td>
+                                        <a href='../../views/produto/recuperar.php?id=$dados_produto[id]'>
+                                          <button class='btn btn-light'>Editar</button>
+                                        </a>
+                                        <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_produto[id], `$dados_produto[descricao]`)'>
+                                            <button class='btn btn-danger'>Excluir</button>
+                                        </a>
 
-                            </td>";
+                            </td>"; }
                             echo "</tr>";
                         }
 

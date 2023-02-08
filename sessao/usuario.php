@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/index.css">
     <title>Opções do Sistema</title>
 </head>
 
@@ -33,31 +33,31 @@
                     
                     <?php 
 
-                         
-
                         if ($_SESSION['usuario-visualizar']) { ?>
                             
                             <li class="nav-item">
-                                <a class="btn btn-outline-primary" aria-current="page" href="../views/usuario/home.php">USUÁRIO</a>
+                                <a class="btn btn-outline-primary" aria-current="page" href="../views/usuario/lista.php">USUÁRIO</a>
                             </li>
-
-                            
+                        
                     <?php } ?>
                     
 
                     
                     <li class="nav-item">
-                        <a class="btn btn-outline-secondary" aria-current="page" href="../views/produto/home.php">PRODUTO</a>
+                        <a class="btn btn-outline-secondary" aria-current="page" href="../views/produto/lista.php">PRODUTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-success" aria-current="page" href="../views/fornecedor/home.php">FORNECEDOR</a>
+                        <a class="btn btn-outline-success" aria-current="page" href="../views/fornecedor/lista.php">FORNECEDOR</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-warning" aria-current="page" href="../views/cliente/home.php">CLIENTE</a>
+                        <a class="btn btn-outline-warning" aria-current="page" href="../views/cliente/lista.php">CLIENTE</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-dark" aria-current="page" href="../views/empresa/home.php">EMPRESA</a>
-                    </li>
+                    <?php 
+                         if ($_SESSION['eh-master']) { ?>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-dark" aria-current="page" href="../views/empresa/lista.php">EMPRESA</a>
+                            </li>
+                    <?php } ?>
                     
                     </li>
                     <li class="nav-item">
@@ -109,15 +109,18 @@
 
     <div class="container mt-5">
         <div class="col">
-        <h2 class="mb-8 centralizar">SISTEMA DE GESTÃO</h2>
-        <h1 class="centralizar"> ISSET </h1>
+        <h2 class="mb-8 centralizar">Acesse a opção desejada acima!</h2>
+        
         
         <div class="row">
             <div class="col centralizar">
-                <img class="" src="https://materiais.imd.ufrn.br/materialV2/assets/imagens/redes-de-computadores-ii/redes_computadores_ii_a00_g01.gif" alt="logo" height="350" >
+                <img class="" src="https://cliply.co/wp-content/uploads/2019/05/371905140_MEET_ROBOT_400px.gif" alt="logo" height="350" >
+            </div>
+            <div class="col centralizar">
+                <img class="" src="../img/logo.png" alt="logo" height="550">
             </div>
         </div>
-        </div>
+    </div>
 
     </div>    
             

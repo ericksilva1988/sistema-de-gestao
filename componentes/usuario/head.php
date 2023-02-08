@@ -27,7 +27,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../views/usuario/home.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../../sessao/usuario.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a data-bs-toggle='modal' data-bs-target='#modalSair' class="nav-link"

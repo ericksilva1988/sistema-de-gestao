@@ -11,9 +11,12 @@
     <div class="container mt-5">
         <h2 class="mb-4">Listar Clientes</h2>
         <div class="row mb-4">
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="cadastrar.php" class="btn btn-primary">Cadastrar</a>
-            </div>
+            <?php
+                if ($_SESSION['cliente-cadastrar']) { ?>
+                    <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
+                        <a href="cadastrar.php" class="btn btn-primary">Cadastrar</a>
+                    </div>
+            <?php } ?>
             <div class="col-md-5 col-sm-12">
                 <input class="form-control" type="search" placeholder="Buscar usuário" id="pesquisar" name="pesquisar" aria-label="Search">
             </div>
@@ -35,7 +38,10 @@
                     <th scope="col">Endereço</th>
                     <th scope="col">Ponto de Referência</th>
                     <th scope="col">Fiado</th>
-                    <th scope="col">Ação</th>
+                    <?php
+                        if ($_SESSION['cliente-cadastrar']) { ?>
+                            <th scope="col">Ação</th>
+                    <?php } ?>
 
                 </tr>
             </thead>
@@ -57,16 +63,17 @@
                                 
                             
 
-                                                        
-                            echo "<td>
-                                <a href='../../views/cliente/recuperar.php?id=$dados_cliente[id]'>
-                                  <button class='btn btn-light'>Editar</button>
-                                </a>
-                                <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_cliente[id], `$dados_cliente[nome]`)'>
-                                    <button class='btn btn-danger'>Excluir</button>
-                                </a>
+                            if ($_SESSION['cliente-cadastrar']) {                          
+                                echo "<td>
+                                    <a href='../../views/cliente/recuperar.php?id=$dados_cliente[id]'>
+                                      <button class='btn btn-light'>Editar</button>
+                                    </a>
+                                    <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_cliente[id], `$dados_cliente[nome]`)'>
+                                        <button class='btn btn-danger'>Excluir</button>
+                                    </a>
 
-                            </td>";
+                                </td>";
+                            }
                             echo "</tr>";
                         }
 

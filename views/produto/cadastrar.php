@@ -4,6 +4,14 @@
 
 <?php include"../../componentes/produto/head.php"; ?>
 
+<?php 
+    
+    if (!$_SESSION['estoque-cadastrar']){
+        header('Location: ../../sessao/usuario.php');
+    }
+
+ ?>
+
     <!-- /Menu superior-->
 
     <div class="container mt-5">
@@ -60,7 +68,7 @@
 
                         $conexao = $database-> conecta_mysql();
 
-                        $queryFonecedor = "select * from fornecedor order by id desc";
+                        $queryFonecedor = "select * from fornecedor";
 
                         $resultado = mysqli_query ($conexao, $queryFonecedor);
 
@@ -68,14 +76,14 @@
 
                         
 
-                            while($dadosDoProduto = mysqli_fetch_assoc($resultado)) { 
+                            while($dadosDoFornecedor = mysqli_fetch_assoc($resultado)) { 
 
-                                    $id = $dadosDoProduto['id'];
-                                    $empresa1 = $dadosDoProduto['empresa'];
+                                    $id = $dadosDoFornecedor['id'];
+                                    $empresa = $dadosDoFornecedor['empresa'];
                                     //$empresa = $dadosDoProduto['empresa'] == $id ? "selected" : "";
                     ?>
                     
-                            <option value="<?php echo $id; ?>"<?php $empresa = $dadosDoProduto['empresa'] == $id ? "selected" : "";?>><?php echo $empresa1; ?></option>    
+                            <option value="<?php echo $dadosDoFornecedor['id']; ?>"<?php $empresa = $dadosDoFornecedor['empresa'] == $id ? "selected" : ""; ?>><?php echo $dadosDoFornecedor['empresa']; ?></option>    
 
                    
                        <?php }  ?>

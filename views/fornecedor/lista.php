@@ -12,9 +12,12 @@
     <div class="container mt-5">
         <h2 class="mb-4">Lista de Fornecedores</h2>
         <div class="row mb-4">
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="cadastrar.php" class="btn btn-primary">Cadastrar</a>
-            </div>
+            <?php
+                if ($_SESSION['usuario-cadastrar']) { ?>
+                    <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
+                        <a href="cadastrar.php" class="btn btn-primary">Cadastrar</a>
+                    </div>
+            <?php } ?>
             <div class="col-md-5 col-sm-12">
                 <input class="form-control" type="search" placeholder="Buscar produto" id="pesquisar" name="pesquisar" aria-label="Search">
             </div>
@@ -31,13 +34,19 @@
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">Empresa</th>
-                    <th scope="col">CNPJ</th>
+                    <?php 
+                        if ($_SESSION['usuario-cadastrar']) { ?>
+                            <th scope="col">CNPJ</th>
+                    <?php } ?>
                     <th scope="col">Telefone</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Representação</th>
                     <th scope="col">Representante</th>
                     <th scope="col">Observações</th>
-                    <th scope="col">Ações</th>
+                    <?php
+                        if ($_SESSION['usuario-cadastrar']) { ?>
+                            <th scope="col">Ações</th>
+                    <?php } ?>
 
                 </tr>
             </thead>
@@ -50,26 +59,29 @@
                             echo "<tr>";
                             echo "<td>" . $dados_fornecedor['id'] . "</td>";
                             echo "<td>" . $dados_fornecedor['empresa'] . "</td>";
-                            echo "<td>" . $dados_fornecedor['cnpj'] . "</td>";
+                                if ($_SESSION['usuario-cadastrar']) { 
+                                    echo "<td>" . $dados_fornecedor['cnpj'] . "</td>";
+                                }
                             echo "<td>" . $dados_fornecedor['telefone'] . "</td>";
                             echo "<td>" . $dados_fornecedor['email'] . "</td>";
                             echo "<td>" . $dados_fornecedor['representacao'] . "</td>";
                             echo "<td>" . $dados_fornecedor['representante'] . "</td>";
                             echo "<td>" . $dados_fornecedor['observacoes'] . "</td>";
                                                         
-                            
-                            echo "<td>
-                                <a href='../../views/fornecedor/recuperar.php?id=$dados_fornecedor[id]'>
-                                  <button class='btn btn-light'>Editar</button>
-                                </a>
-                                
-                                <a data-bs-toggle='modal' data-bs-target='#modalPadrao' 
-                                onclick='passaDadosModal($dados_fornecedor[id], `$dados_fornecedor[empresa]`)'>
-                                
-                                <button class='btn btn-danger'>Excluir</button>
-                                </a>
+                            if ($_SESSION['usuario-cadastrar']) {
+                                echo "<td>
+                                    <a href='../../views/fornecedor/recuperar.php?id=$dados_fornecedor[id]'>
+                                      <button class='btn btn-light'>Editar</button>
+                                    </a>
+                                    
+                                    <a data-bs-toggle='modal' data-bs-target='#modalPadrao' 
+                                    onclick='passaDadosModal($dados_fornecedor[id], `$dados_fornecedor[empresa]`)'>
+                                    
+                                    <button class='btn btn-danger'>Excluir</button>
+                                    </a>
 
-                            </td>";
+                                </td>";
+                            }
                             echo "</tr>";
                         }
 

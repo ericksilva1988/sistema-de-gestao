@@ -8,9 +8,13 @@
 
                 $conexao = $database-> conecta_mysql();
 
-                $query = "select * from produtos order by id desc";
+                $queryProdutos = "select * from produtos order by id desc";
 
-                $result = mysqli_query ($conexao, $query);
+                $queryFornecedores = "select * from fornecedor";
+
+                $result = mysqli_query ($conexao, $queryProdutos);
+
+                $resultado = mysqli_query($conexao, $queryFornecedores);
     
                 //$nome = $row['nome'];
                 

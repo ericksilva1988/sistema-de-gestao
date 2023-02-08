@@ -12,9 +12,12 @@
     <div class="container mt-5">
         <h2 class="mb-4">Lista de Empresas</h2>
         <div class="row mb-4">
-            <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
-                <a href="cadastrar.php" class="btn btn-primary">Cadastrar</a>
-            </div>
+            <?php 
+                if ($_SESSION['usuario-cadastrar']) { ?>
+                    <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
+                        <a href="cadastrar.php" class="btn btn-primary">Cadastrar</a>
+                    </div>
+            <?php } ?>
             <div class="col-md-5 col-sm-12">
                 <input class="form-control" type="search" placeholder="Buscar produto" id="pesquisar" name="pesquisar" aria-label="Search">
             </div>
@@ -38,7 +41,10 @@
                     <th scope="col">Telefone</th>
                     <th scope="col">Referência</th>
                     <th scope="col">Segmento</th>
-                    <th scope="col">Ações</th>
+                    <?php
+                        if ($_SESSION['usuario-cadastrar']) { ?>
+                            <th scope="col">Ações</th>
+                    <?php } ?>
 
 
                 </tr>
@@ -60,19 +66,20 @@
                             echo "<td>" . $dados_empresa['referencia'] . "</td>";
                             echo "<td>" . $dados_empresa['segmento'] . "</td>";
                                                         
-                            
-                            echo "<td>
-                                <a href='../../views/empresa/recuperar.php?id=$dados_empresa[id]'>
-                                  <button class='btn btn-light'>Editar</button>
-                                </a>
-                                
-                                <a data-bs-toggle='modal' data-bs-target='#modalPadrao' 
-                                onclick='passaDadosModal($dados_empresa[id], `$dados_empresa[empresa]`)'>
-                                
-                                <button class='btn btn-danger'>Excluir</button>
-                                </a>
+                            if ($_SESSION['usuario-cadastrar']) {
+                                echo "<td>
+                                    <a href='../../views/empresa/recuperar.php?id=$dados_empresa[id]'>
+                                      <button class='btn btn-light'>Editar</button>
+                                    </a>
+                                    
+                                    <a data-bs-toggle='modal' data-bs-target='#modalPadrao' 
+                                    onclick='passaDadosModal($dados_empresa[id], `$dados_empresa[empresa]`)'>
+                                    
+                                    <button class='btn btn-danger'>Excluir</button>
+                                    </a>
 
-                            </td>";
+                                </td>";
+                            }
                             echo "</tr>";
                         }
 

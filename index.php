@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <div class="card">
-            <img src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-4.png" class="card-img-top"
+            <img src="img/logo.png" class="card-img-top"
                 alt="logo">
             <div class="card-body">
                 <form action= "sessao/validarLogin.php" method="POST">
