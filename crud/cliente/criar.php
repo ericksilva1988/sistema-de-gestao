@@ -17,7 +17,7 @@
                         
         $fiado = isset($_POST["fiado"]) ? 1 : 0;
 
-        $idEmpresa = $_POST['empresa'];
+        $idEmpresa = $_POST['id-empresa'];
         
        
        

@@ -60,7 +60,7 @@
                     <h4>Tipo de Usuário</h4>
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-12 mt-3">
-                            <label for="" class="form-label">Identifique o tipo</label>
+                            <label for="" class="form-label">Identifique o tipoaaa</label>
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" name="eh-admin" id="eh-admin">
                                 <label class="form-check-label" for="eh-admin">É Admin</label>
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <select class="form-select" aria-label="Selecione uma empresa" id="empresa" name="empresa">
+                            <select class="form-select" aria-label="Selecione uma empresa" id="id-empresa" name="id-empresa">
                                 <option selected value="" selected disabled="disabled" hidden>Selecione uma empresa</option>
                                 
                                 <?php 
@@ -104,7 +104,7 @@
 
                 else{ ?>
 
-                    <input type="hidden" name="empresa" id="empresa" value="<?php echo $_SESSION['id-empresa']; ?>">
+                    <input type="hidden" name="id-empresa" id="id-empresa" value="<?php echo $_SESSION['id-empresa']; ?>">
                 
                 <?php } ?>
         

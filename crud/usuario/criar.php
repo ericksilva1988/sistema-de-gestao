@@ -20,7 +20,7 @@
         $estoqueCadastrar = isset($_POST["estoque-cadastrar"]) ? 1 : 0;
         $admin = isset($_POST["eh-admin"]) ? 1 : 0;
         $master = isset($_POST["eh-master"]) ? 1 : 0;
-        $idEmpresa = $_POST['empresa'];   
+        $idEmpresa = $_POST['id-empresa'];   
 
                 
           

@@ -10,7 +10,7 @@
 
                 $queryProdutos = "select * from produtos order by id desc";
 
-                $queryFornecedores = "select * from fornecedor";
+                $queryFornecedores = "select * from fornecedor order by id desc";
 
                 $result = mysqli_query ($conexao, $queryProdutos);
 

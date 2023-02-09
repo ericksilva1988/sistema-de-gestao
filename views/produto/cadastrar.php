@@ -88,7 +88,7 @@
                        <?php }  ?>
                             
                     </select>
-                    <input type="hidden" name="empresa" id="empresa" value="<?php echo $_SESSION['id-empresa']; ?>">
+                    <input type="hidden" name="id-empresa" id="id-empresa" value="<?php echo $_SESSION['id-empresa']; ?>">
 
 
                 </div>

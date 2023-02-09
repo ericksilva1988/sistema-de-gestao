@@ -59,6 +59,7 @@
                     <a href="lista.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
                 </div>
             </div>
+            <input type="hidden" name="id-empresa" id="id-empresa" value="<?php echo $_SESSION['id-empresa']; ?>">
         </form>
     </div>
     <?php include"../../js/fornecedor/recuperar.php"; ?>

@@ -12,7 +12,7 @@
         $estoqueMinimo = $_POST['estoque-minimo'];
         $estoqueAtual = $_POST['estoque-atual'];
         $codigoBarra = $_POST['codigo-barra'];
-        $fornecedor = $_POST['fornecedor'];
+        $fornecedor = isset($_POST["fornecedor"]) ? $_POST["fornecedor"] : 0;
         $marca = $_POST['marca'];
         $modelo = $_POST['modelo'];
         $peso = $_POST['peso'];

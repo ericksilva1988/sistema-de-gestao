@@ -52,7 +52,14 @@
             </thead>
             <tbody>
                 
-                <?php 
+                <?php
+                        // criando uma variável do tipo array
+                        $arrayFornecedores = array();
+                        // percorrendo o resultado da query do banco
+                        while ($dados_fornecedor = mysqli_fetch_assoc($resultado)) {
+                            // pegando cada linha do banco e guardando numa posição do array $arrayFornecedores
+                            $arrayFornecedores[] = $dados_fornecedor;
+                        }
 
                         while($dados_produto = mysqli_fetch_assoc($result)) {
                             
@@ -64,14 +71,17 @@
                             echo "<td>" . $dados_produto['estoque-minimo'] . "</td>";
                             echo "<td>" . $dados_produto['estoque-atual'] . "</td>";
                             echo "<td>" . $dados_produto['codigo-barra'] . "</td>";
-                            
-                            while ($dados_fornecedor = mysqli_fetch_assoc($resultado)) {
-                                if ($dados_produto['fornecedor'] == $dados_fornecedor['id']) {
-                                        echo "<td>" . $dados_fornecedor['empresa'] . "</td>";
+
+                            $nomeFornecedor = "";
+                            // percorrendo o array $arrayFornecedores
+                            foreach ($arrayFornecedores as $fornecedor) {
+                                // comparando se a coluna 'fornecedor' do produto é a mesma que a 'id' do array $arrayFornecedores
+                                if ($dados_produto['fornecedor'] == $fornecedor['id']) {
+                                    // imprimindo a linha com o nome do fornecedor
+                                    $nomeFornecedor = $fornecedor['empresa'];
                                 }
-                                
                             }
-                            
+                            echo "<td>" . $nomeFornecedor . "</td>";
                             echo "<td>" . $dados_produto['marca'] . "</td>";
                             echo "<td>" . $dados_produto['modelo'] . "</td>";
                             echo "<td>" . $dados_produto['peso'] . "</td>";
