@@ -80,10 +80,9 @@
 
                                     $id = $dadosDoFornecedor['id'];
                                     $empresa = $dadosDoFornecedor['empresa'];
-                                    //$empresa = $dadosDoProduto['empresa'] == $id ? "selected" : "";
-                    ?>
+                            ?>
                     
-                            <option value="<?php echo $dadosDoFornecedor['id']; ?>"<?php $empresa = $dadosDoFornecedor['empresa'] == $id ? "selected" : ""; ?>><?php echo $dadosDoFornecedor['empresa']; ?></option>    
+                            <option value="<?php echo $dadosDoFornecedor['id']; ?>"><?php echo $dadosDoFornecedor['empresa']; ?></option>    
 
                    
                        <?php }  ?>

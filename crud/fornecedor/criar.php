@@ -11,8 +11,6 @@
         $representacao = $_GET['representacao'];
         $representante = $_GET['representante'];
         $observacoes = $_GET['observacoes'];
-                
-        $estoqueCadastrar = isset($_GET["estoque-cadastrar"]) ? 1 : 0;
                       
         $database = new db();
 
