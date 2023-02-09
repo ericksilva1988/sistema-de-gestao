@@ -5,7 +5,7 @@
 	if (isset($_POST['submit']) && !empty($_POST['login']) && !empty($_POST['senha'])) {
 		
 		
-		include_once('../banco/conexao.php');
+		include_once('banco/conexao.php');
 
 		$login = $_POST['login'];
 		$senha = $_POST['senha'];
@@ -26,7 +26,8 @@
 
 			unset($_SESSION['login']);
 			unset($_SESSION['senha']);
-			header('Location: index.php');
+			//header('Location: ../index.php');
+			$msg =  "Acesso Negado, Erro na Senha ou E-mail";
 			
 			
 		}
@@ -58,7 +59,7 @@
 				$_SESSION['eh-master'] = $row['eh-master'];
 				$_SESSION['eh-admin'] = $row['eh-admin'];
 
-				header('Location: ../sessao/usuario.php');
+				header('Location: sessao/usuario.php');
 
 
 
@@ -83,8 +84,9 @@
 
 		//Não Acessar
 	} else{
-		header('Location: index.php');
-
+		//header('Location: ../index.php');
+		$msg =  "Acesso Negado, Erro na Senha ou E-mail";
+		
 	}
 
  ?>

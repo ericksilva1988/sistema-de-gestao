@@ -61,7 +61,7 @@
                     
                     </li>
                     <li class="nav-item">
-                        <a data-bs-toggle='modal' data-bs-target='#modalSair' class="nav-link"
+                        <a  class="nav-link"
                             href="encerrar.php">SAIR</a>
                     </li>
 
@@ -90,9 +90,11 @@
                     </b> Tem certeza que deseja sair da sessão?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
                     <a href="encerrar.php">
-                        <button type="button" class="btn btn-danger">Sair</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                    </a>
+                    <a href="encerrar.php">
+                        <button type="button" class="btn btn-danger">Cair Fora</button>
                     </a>
                 </div>
             </div>

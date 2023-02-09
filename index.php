@@ -1,3 +1,5 @@
+<?php include_once ("sessao/validarLogin.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +10,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="css/index.css" rel="stylesheet">
+    <style type="text/css">
+        .btn-danger{
+            
+        }
+    </style>
     <title>Login - ISSET</title>
 </head>
 
@@ -16,11 +23,12 @@
         <div class="card">
             <img src="img/logo.png" class="card-img-top"
                 alt="logo">
+            
             <div class="card-body">
-                <form action= "sessao/validarLogin.php" method="POST">
+                <form action= "index.php" method="POST">
                     <div class="mb-3">
                         <label for="login" class="form-label">Login</label>
-                        <input type="text" class="form-control" id="login" name="login" aria-describedby="help">
+                        <input type="text" class="form-control" id="login" name="login" aria-describedby="help">                        
                         <div id="help" class="form-text">Seu login pode ser seu nome, email ou número</div>
                     </div>
                     <div class="mb-3">
