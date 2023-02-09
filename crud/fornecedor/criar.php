@@ -11,16 +11,15 @@
         $representacao = $_GET['representacao'];
         $representante = $_GET['representante'];
         $observacoes = $_GET['observacoes'];
-        $idEmpresa = $_GET['empresa'];
                 
-        //$estoqueCadastrar = isset($_GET["estoque-cadastrar"]) ? 1 : 0;
+        $estoqueCadastrar = isset($_GET["estoque-cadastrar"]) ? 1 : 0;
                       
         $database = new db();
 
         $conexao = $database-> conecta_mysql();
 
-        $query = "insert into fornecedor (empresa,cnpj,telefone,email,representacao,representante,observacoes,`id-empresa`) 
-        values ('$empresa','$cnpj','$telefone','$email','$representacao','$representante','$observacoes','$idEmpresa')";
+        $query = "insert into fornecedor (empresa,cnpj,telefone,email,representacao,representante,observacoes) 
+        values ('$empresa','$cnpj','$telefone','$email','$representacao','$representante','$observacoes')";
 
         if (mysqli_query ($conexao, $query)) {
 
