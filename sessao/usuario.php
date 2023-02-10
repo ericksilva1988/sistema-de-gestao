@@ -44,18 +44,18 @@
 
                     
                     <li class="nav-item">
-                        <a class="btn btn-outline-secondary" aria-current="page" href="../views/produto/lista.php">PRODUTO</a>
+                        <a class="btn btn-outline-primary" aria-current="page" href="../views/produto/lista.php">ESTOQUE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-success" aria-current="page" href="../views/fornecedor/lista.php">FORNECEDOR</a>
+                        <a class="btn btn-outline-primary" aria-current="page" href="../views/fornecedor/lista.php">FORNECEDOR</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-warning" aria-current="page" href="../views/cliente/lista.php">CLIENTE</a>
+                        <a class="btn btn-outline-primary" aria-current="page" href="../views/cliente/lista.php">CLIENTE</a>
                     </li>
                     <?php 
                          if ($_SESSION['eh-master']) { ?>
                             <li class="nav-item">
-                                <a class="btn btn-outline-dark" aria-current="page" href="../views/empresa/lista.php">EMPRESA</a>
+                                <a class="btn btn-outline-primary" aria-current="page" href="../views/empresa/lista.php">EMPRESA</a>
                             </li>
                     <?php } ?>
                     
@@ -110,21 +110,20 @@
     <!-- /Menu superior-->
 
     <div class="container mt-5">
-        <div class="col">
-        <h2 class="mb-8 centralizar">Acesse a opção desejada acima!</h2>
-        
-        
         <div class="row">
-            <div class="col centralizar">
-                <img class="" src="https://cliply.co/wp-content/uploads/2019/05/371905140_MEET_ROBOT_400px.gif" alt="logo" height="350" >
+            <div class="col">
+                <h2 class="mb-8">Estatísticas do Sistema</h2>
             </div>
-            <div class="col centralizar">
-                <img class="" src="../img/logo.png" alt="logo" height="550">
+        </div>
+        <div class="row">
+            <div class="col mb-1">
+                <!-- <img src="../img/estatistica.svg">
+                <h2>Total de Produtos</h2> -->
             </div>
         </div>
     </div>
 
-    </div>    
+       
             
             
             

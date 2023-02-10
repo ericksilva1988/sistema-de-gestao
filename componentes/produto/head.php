@@ -37,7 +37,7 @@
 
                 </ul>
                 <p>
-                    <?php echo "Bem Vindo: *" ?>
+                    <?php echo "Sistema Acessado: *" ?>
                 </p>
                 <p><b>   <?php echo $_SESSION['login']; ?>
                     </b></p>

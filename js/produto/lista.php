@@ -1,9 +1,22 @@
-<script type="text/javascript">
+        <script type="text/javascript">
     
             function passaDadosModal(id, descricao){
                
                 document.querySelector('#nome-usuario').innerText=descricao;
                 document.querySelector('#linkExcluir').href="../../crud/produto/deletar.php?id="+id;
+                                
+            }
+
+            
+        </script>
+
+        <script type="text/javascript">
+    
+            function passaDadosModal(id, descricao, estoque){
+               
+                document.querySelector('#nome-estoque').innerText=descricao;
+                document.querySelector('#numero-estoque').innerText=estoque;
+                document.querySelector('#linkEstoque').href="../../crud/produto/alterarEstoque.php?id="+id;
                                 
             }
 

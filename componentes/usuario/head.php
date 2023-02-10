@@ -36,7 +36,7 @@
 
                 </ul>
                 <p>
-                    <?php echo "Acessado por: *" ?>
+                    <?php echo "Sistema Acessado: *" ?>
                 </p>
                 <p class=><b>
                         <?php echo $_SESSION['login']; ?>

@@ -66,10 +66,10 @@
                             if ($_SESSION['cliente-cadastrar']) {                          
                                 echo "<td>
                                     <a href='../../views/cliente/recuperar.php?id=$dados_cliente[id]'>
-                                      <button class='btn btn-light'>Editar</button>
+                                      <img src='../../img/editar.svg'>
                                     </a>
                                     <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_cliente[id], `$dados_cliente[nome]`)'>
-                                        <button class='btn btn-danger'>Excluir</button>
+                                        <img src='../../img/excluir.svg'>
                                     </a>
 
                                 </td>";
@@ -80,7 +80,7 @@
                 ?>
             </tbody>
         </table>
-
+        <img src="">
 
         <!-- Modal -->
         <div class="modal fade" id="modalPadrao" tabindex="-1" aria-labelledby="modalPadrao" aria-hidden="true">

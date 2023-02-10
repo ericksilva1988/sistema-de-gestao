@@ -42,7 +42,7 @@
                     <th scope="col">Marca</th>
                     <th scope="col">modelo</th>
                     <th scope="col">Peso</th>
-                    <th scope="col">Obs</th>
+                    <!-- <th scope="col">Obs</th> -->
                     <?php
                         if ($_SESSION['estoque-cadastrar']) { ?>
                             <th scope="col">Ações</th>
@@ -70,6 +70,7 @@
                             echo "<td>" . $dados_produto['venda'] . "</td>";
                             echo "<td>" . $dados_produto['estoque-minimo'] . "</td>";
                             echo "<td>" . $dados_produto['estoque-atual'] . "</td>";
+                                $estoque = $dados_produto['estoque-atual'];
                             echo "<td>" . $dados_produto['codigo-barra'] . "</td>";
 
                             $nomeFornecedor = "";
@@ -85,15 +86,18 @@
                             echo "<td>" . $dados_produto['marca'] . "</td>";
                             echo "<td>" . $dados_produto['modelo'] . "</td>";
                             echo "<td>" . $dados_produto['peso'] . "</td>";
-                            echo "<td>" . $dados_produto['observacoes'] . "</td>";
+                            // echo "<td>" . $dados_produto['observacoes'] . "</td>";
                             
                                 if ($_SESSION['estoque-cadastrar']) { 
                                     echo "<td>
                                         <a href='../../views/produto/recuperar.php?id=$dados_produto[id]'>
-                                          <button class='btn btn-light'>Editar</button>
+                                          <img src='../../img/editar.svg'>
                                         </a>
                                         <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_produto[id], `$dados_produto[descricao]`)'>
-                                            <button class='btn btn-danger'>Excluir</button>
+                                            <img src='../../img/excluir.svg'>
+                                        </a>
+                                        <a data-bs-toggle='modal' data-bs-target='#modalEstoque' onclick='passaDadosModal($dados_produto[id], `$dados_produto[descricao]`, $estoque)'>
+                                            <img src='../../img/estoque.svg'>
                                         </a>
 
                             </td>"; }
@@ -119,6 +123,38 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
                         <a href="" class="btn btn-danger" id="linkExcluir">Excluir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal Estoque-->
+        <div class="modal fade" id="modalEstoque" tabindex="-1" aria-labelledby="modalEstoque" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEstoque">Atualização de Estoque!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        Informe o valor que deseja alterar do item: <strong id="nome-estoque"></strong>?
+                    </div>
+                    <form action="../../crud/produto/alterarEstoque.php" method="GET">
+            
+                        <div class="modal-body">     
+                            <label for="estoque-atual" class="form-label">Estoque atual: <b><strong id="numero-estoque"></strong></b></label>
+                            
+                            <input type="number" class="form-control" id="estoque-atual" name="estoque-atual" value=""
+                                placeholder="Informe a quantidade de itens para atualizar" />
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                        <a href="" class="btn btn-secondary" name="submit" id="linkEstoque">Atualizar</a>
                     </div>
                 </div>
             </div>

@@ -69,13 +69,13 @@
                             if ($_SESSION['usuario-cadastrar']) {
                                 echo "<td>
                                     <a href='../../views/empresa/recuperar.php?id=$dados_empresa[id]'>
-                                      <button class='btn btn-light'>Editar</button>
+                                      <img src='../../img/editar.svg'>
                                     </a>
                                     
                                     <a data-bs-toggle='modal' data-bs-target='#modalPadrao' 
                                     onclick='passaDadosModal($dados_empresa[id], `$dados_empresa[empresa]`)'>
                                     
-                                    <button class='btn btn-danger'>Excluir</button>
+                                    <img src='../../img/excluir.svg'>
                                     </a>
 
                                 </td>";

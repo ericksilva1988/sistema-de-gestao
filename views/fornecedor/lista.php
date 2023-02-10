@@ -42,7 +42,7 @@
                     <th scope="col">E-mail</th>
                     <th scope="col">Representação</th>
                     <th scope="col">Representante</th>
-                    <th scope="col">Observações</th>
+                    <!-- <th scope="col">Observações</th> -->
                     <?php
                         if ($_SESSION['usuario-cadastrar']) { ?>
                             <th scope="col">Ações</th>
@@ -66,18 +66,18 @@
                             echo "<td>" . $dados_fornecedor['email'] . "</td>";
                             echo "<td>" . $dados_fornecedor['representacao'] . "</td>";
                             echo "<td>" . $dados_fornecedor['representante'] . "</td>";
-                            echo "<td>" . $dados_fornecedor['observacoes'] . "</td>";
+                            // echo "<td>" . $dados_fornecedor['observacoes'] . "</td>";
                                                         
                             if ($_SESSION['usuario-cadastrar']) {
                                 echo "<td>
                                     <a href='../../views/fornecedor/recuperar.php?id=$dados_fornecedor[id]'>
-                                      <button class='btn btn-light'>Editar</button>
+                                      <img src='../../img/editar.svg'>
                                     </a>
                                     
                                     <a data-bs-toggle='modal' data-bs-target='#modalPadrao' 
                                     onclick='passaDadosModal($dados_fornecedor[id], `$dados_fornecedor[empresa]`)'>
                                     
-                                    <button class='btn btn-danger'>Excluir</button>
+                                    <img src='../../img/excluir.svg'>
                                     </a>
 
                                 </td>";

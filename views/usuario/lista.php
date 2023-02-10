@@ -83,10 +83,10 @@
 
                                 echo "<td> 
                                     <a href='../../views/usuario/recuperar.php?id=$user_data[id]'>
-                                        <button class='btn btn-light'>Editar</button>
+                                        <img src='../../img/editar.svg'>
                                     </a>
                                     <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($user_data[id], `$user_data[nome]`)'>
-                                        <button class='btn btn-danger'>Excluir</button>
+                                        <img src='../../img/excluir.svg'>
                                     </a>
 
                                 </td>";
