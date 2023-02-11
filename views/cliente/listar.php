@@ -9,7 +9,7 @@
 
 
     <div class="container mt-5">
-        <h2 class="mb-4">Listar Clientes</h2>
+        <h2 class="mb-4">Clientes</h2>
         <div class="row mb-4">
             <?php
                 if ($_SESSION['cliente-cadastrar']) { ?>
@@ -65,7 +65,7 @@
 
                             if ($_SESSION['cliente-cadastrar']) {                          
                                 echo "<td>
-                                    <a href='../../views/cliente/recuperar.php?id=$dados_cliente[id]'>
+                                    <a href='../../views/cliente/editar.php?id=$dados_cliente[id]'>
                                       <img src='../../img/editar.svg'>
                                     </a>
                                     <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_cliente[id], `$dados_cliente[nome]`)'>

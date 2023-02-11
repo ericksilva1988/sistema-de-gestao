@@ -7,7 +7,7 @@
     <!-- /Menu superior-->
 
     <div class="container mt-5">
-        <h2 class="mb-4">Cadastrar produto</h2>
+        <h2 class="mb-4">Editar produto</h2>
         <form action="../../crud/produto/alterar.php" method="POST">
             <div class="row">
                 <div class="col mt-3">

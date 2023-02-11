@@ -36,7 +36,7 @@
                         if ($_SESSION['usuario-visualizar']) { ?>
                             
                             <li class="nav-item">
-                                <a class="btn btn-outline-primary" aria-current="page" href="../views/usuario/lista.php">USUÁRIO</a>
+                                <a class="btn btn-outline-primary" aria-current="page" href="../views/usuario/listar.php">USUÁRIO</a>
                             </li>
                         
                     <?php } ?>
@@ -44,18 +44,18 @@
 
                     
                     <li class="nav-item">
-                        <a class="btn btn-outline-primary" aria-current="page" href="../views/produto/lista.php">ESTOQUE</a>
+                        <a class="btn btn-outline-primary" aria-current="page" href="../views/produto/listar.php">ESTOQUE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-primary" aria-current="page" href="../views/fornecedor/lista.php">FORNECEDOR</a>
+                        <a class="btn btn-outline-primary" aria-current="page" href="../views/fornecedor/listar.php">FORNECEDOR</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-primary" aria-current="page" href="../views/cliente/lista.php">CLIENTE</a>
+                        <a class="btn btn-outline-primary" aria-current="page" href="../views/cliente/listar.php">CLIENTE</a>
                     </li>
                     <?php 
                          if ($_SESSION['eh-master']) { ?>
                             <li class="nav-item">
-                                <a class="btn btn-outline-primary" aria-current="page" href="../views/empresa/lista.php">EMPRESA</a>
+                                <a class="btn btn-outline-primary" aria-current="page" href="../views/empresa/listar.php">EMPRESA</a>
                             </li>
                     <?php } ?>
                     

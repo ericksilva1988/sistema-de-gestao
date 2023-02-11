@@ -9,7 +9,7 @@
 
 
     <div class="container mt-5">
-        <h2 class="mb-4">Listar de produtos</h2>
+        <h2 class="mb-4">Estoque</h2>
         <div class="row mb-4">
             <?php
                 if ($_SESSION['estoque-cadastrar']) { ?>
@@ -90,7 +90,7 @@
                             
                                 if ($_SESSION['estoque-cadastrar']) { 
                                     echo "<td>
-                                        <a href='../../views/produto/recuperar.php?id=$dados_produto[id]'>
+                                        <a href='../../views/produto/editar.php?id=$dados_produto[id]'>
                                           <img src='../../img/editar.svg'>
                                         </a>
                                         <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_produto[id], `$dados_produto[descricao]`)'>

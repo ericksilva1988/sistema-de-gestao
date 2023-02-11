@@ -7,7 +7,7 @@
     <!-- /Menu superior-->
     
     <div class="container mt-5">
-        <h2 class="mb-4">Cadastrar usuário</h2>
+        <h2 class="mb-4">Editar usuário</h2>
         <h4>Dados básicos</h4>
         <form action="../../crud/usuario/alterar.php" method="POST">
             <div class="row">
