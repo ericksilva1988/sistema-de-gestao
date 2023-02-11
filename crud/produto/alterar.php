@@ -18,8 +18,6 @@
         $peso = $_POST['peso'];
         $observacoes = $_POST['observacoes'];
 
-    echo $id;
-
         
         $database = new db();
 
@@ -32,7 +30,7 @@
         
     }
 
-    header('Location: ../../views/produto/lista.php');
+    header('Location: ../../views/produto/listar.php');
 
     echo "Dados alterados com sucesso!!!";
 ?>

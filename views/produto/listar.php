@@ -70,7 +70,7 @@
                             echo "<td>" . $dados_produto['venda'] . "</td>";
                             echo "<td>" . $dados_produto['estoque-minimo'] . "</td>";
                             echo "<td>" . $dados_produto['estoque-atual'] . "</td>";
-                                $estoque = $dados_produto['estoque-atual'];
+                                $estoqueAtual = $dados_produto['estoque-atual'];
                             echo "<td>" . $dados_produto['codigo-barra'] . "</td>";
 
                             $nomeFornecedor = "";
@@ -90,14 +90,14 @@
                             
                                 if ($_SESSION['estoque-cadastrar']) { 
                                     echo "<td>
-                                        <a href='../../views/produto/editar.php?id=$dados_produto[id]'>
+                                        <a class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#modalEstoque' onclick='modalAtualizarEstoque($dados_produto[id], `$dados_produto[descricao]`, $estoqueAtual)' title='Atualizar estoque'>
+                                            <img src='../../img/estoque.svg'>
+                                        </a>    
+                                        <a class='btn btn-secondary btn-sm' href='../../views/produto/editar.php?id=$dados_produto[id]' title='Editar produto'>
                                           <img src='../../img/editar.svg'>
                                         </a>
-                                        <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_produto[id], `$dados_produto[descricao]`)'>
+                                        <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='modalDeletarItem($dados_produto[id], `$dados_produto[descricao]`)' title='Excluir produto'>
                                             <img src='../../img/excluir.svg'>
-                                        </a>
-                                        <a data-bs-toggle='modal' data-bs-target='#modalEstoque' onclick='passaDadosModal($dados_produto[id], `$dados_produto[descricao]`, $estoque)'>
-                                            <img src='../../img/estoque.svg'>
                                         </a>
 
                             </td>"; }
@@ -118,7 +118,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Tem certeza que deseja excluir o usuário <strong id="nome-usuario"></strong>?
+                        Tem certeza que deseja excluir o produto <strong id="descricao"></strong>?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
@@ -136,25 +136,43 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalEstoque">Atualização de Estoque!</h5>
+                        <h5 class="modal-title">Atualização de Estoque!</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    
-                    <div class="modal-body">
-                        Informe o valor que deseja alterar do item: <strong id="nome-estoque"></strong>?
-                    </div>
-                    <form action="../../crud/produto/alterarEstoque.php" method="GET">
-            
-                        <div class="modal-body">     
-                            <label for="estoque-atual" class="form-label">Estoque atual: <b><strong id="numero-estoque"></strong></b></label>
-                            
-                            <input type="number" class="form-control" id="estoque-atual" name="estoque-atual" value=""
-                                placeholder="Informe a quantidade de itens para atualizar" />
+                     <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                Item: <strong id="estoque-descricao"></strong><br>
+                                <span for="estoque-atual">Estoque atual: <strong id="estoque-atual-visivel"></strong></span>
+                            </div>
                         </div>
-                    </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                        <a href="" class="btn btn-secondary" name="submit" id="linkEstoque">Atualizar</a>
+                        <form action="../../crud/produto/alterarEstoque.php" method="POST">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <label class="form-label" for="">Qual a operação?</label><br>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label" for="somar">Somar</label>    
+                                        <input class="form-check-input" type="radio" name="operacao" id="somar" value="somar" checked>    
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label" for="subtrair">Subtrair</label>
+                                        <input class="form-check-input" type="radio" name="operacao" id="subtrair" value="subtrair">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label class="form-label" for="novo-estoque">Qual o valor?</label>
+                                    <input type="number" class="form-control" id="novo-estoque" name="novo-estoque" value=""
+                                    placeholder="Valor" />
+                                    </div>
+                                </div>
+                            </div>    
+                            <div class="modal-footer">
+                                <input type="hidden" id="id-produto" name="id-produto">
+                                <input type="hidden" id="estoque-atual" value="" name="estoque-atual">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                                <button  type="submit" name="submit" class="btn btn-primary alinhar-a-direita ms-2">Alterar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

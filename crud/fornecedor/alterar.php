@@ -27,7 +27,7 @@
         
     }
 
-   header('Location: ../../views/fornecedor/lista.php');
+   header('Location: ../../views/fornecedor/listar.php');
 
     echo "Dados alterados com sucesso!!!";
 ?>

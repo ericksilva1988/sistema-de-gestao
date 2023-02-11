@@ -2,25 +2,19 @@
 
  include_once("../../banco/conexao.php");
 
-    //$query = "select * from usuarios order by id desc";
+        $database = new db();
 
-                $database = new db();
+        $conexao = $database-> conecta_mysql();
 
-                $conexao = $database-> conecta_mysql();
+        $query = "select * from cliente order by id desc";
 
-                $query = "select * from cliente order by id desc";
-
-                $result = mysqli_query ($conexao, $query);
+        $result = mysqli_query ($conexao, $query);
     
-                //$nome = $row['nome'];
-                
-
-
 
         if (!empty($_GET['pesquisar'])) {
 
             $termoDeBusca = $_GET['pesquisar'];
-            $queryBusca = "SELECT * FROM cliente WHERE id LIKE '%$termoDeBusca%' or nome LIKE '%$termoDeBusca%' or apelido LIKE '%$termoDeBusca%' or endereco LIKE '%$termoDeBusca%' ORDER BY id DESC";         
+            $queryBusca = "SELECT * FROM cliente WHERE id LIKE '%$termoDeBusca%' or nome LIKE '%$termoDeBusca%' or apelido LIKE '%$termoDeBusca%' ORDER BY id DESC";         
             $result = mysqli_query ($conexao, $queryBusca);
             
             $msg = "Registros Encontrados";

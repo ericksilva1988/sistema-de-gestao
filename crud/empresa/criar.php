@@ -28,7 +28,7 @@
         if (mysqli_query ($conexao, $query)) {
 
             echo 'Empresa cadastrada com sucesso!';
-            header('Location: ../../views/empresa/lista.php');
+            header('Location: ../../views/empresa/listar.php');
 
         }else{
 
