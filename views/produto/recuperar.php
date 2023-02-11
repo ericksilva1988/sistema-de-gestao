@@ -70,12 +70,12 @@
 
                             while($dadosDoProduto = mysqli_fetch_assoc($resultado)) { 
 
-                                    $id = $dadosDoProduto['id'];
+                                    $idFornecedor = $dadosDoProduto['id'];
                                     $empresa = $dadosDoProduto['empresa'];
 
                     ?>
                     
-                            <option value="<?php echo $id; ?>"><?php echo $empresa; ?></option>    
+                            <option value="<?php echo $idFornecedor; ?>"><?php echo $empresa; ?></option>    
 
                    
                        <?php }  ?>

@@ -18,6 +18,8 @@
         $peso = $_POST['peso'];
         $observacoes = $_POST['observacoes'];
 
+    echo $id;
+
         
         $database = new db();
 
