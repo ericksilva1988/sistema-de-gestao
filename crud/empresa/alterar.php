@@ -13,6 +13,7 @@
         $telefone = $_POST['telefone'];
         $referencia = $_POST['referencia'];
         $segmento = $_POST['segmento'];
+        $endereco = $_POST['endereco'];
 
         
         $database = new db();

@@ -74,11 +74,11 @@
                                     $empresa = $dadosDoProduto['empresa'];
 
                     ?>
-                    
-                            <option value="<?php echo $idFornecedor; ?>"><?php echo $empresa; ?></option>    
-
-                   
-                       <?php }  ?>
+                            <option value="<?php echo $idFornecedor; ?>" <?php echo $fornecedor == $idFornecedor ? "selected" : ""; ?>>
+                                <?php echo $empresa; ?>
+                            </option>
+                       
+                    <?php }  ?>
                             
                     </select>
                 </div>
