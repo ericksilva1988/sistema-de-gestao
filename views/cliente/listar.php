@@ -65,10 +65,10 @@
 
                             if ($_SESSION['cliente-cadastrar']) {                          
                                 echo "<td>
-                                    <a class='btn btn-secondary btn-sm' href='../../views/cliente/editar.php?id=$dados_cliente[id]'>
+                                    <a class='btn btn-secondary btn-sm' href='../../views/cliente/editar.php?id=$dados_cliente[id]' title='Atualizar cliente'>
                                       <img src='../../img/editar.svg'>
                                     </a>
-                                    <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_cliente[id], `$dados_cliente[nome]`)'>
+                                    <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_cliente[id], `$dados_cliente[nome]`)' title='Excluir cliente'>
                                         <img src='../../img/excluir.svg'>
                                     </a>
 

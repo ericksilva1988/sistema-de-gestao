@@ -20,8 +20,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-4.png" alt="logo"
-                    height="30" />
+                <img src="../img/logo.png" class="card-img-top"
+                alt="logo" height="80">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -61,7 +61,7 @@
                     
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle='modal' data-bs-target='#modalSair'>SAIR</a>
+                        <a class="btn btn-outline-danger" data-bs-toggle='modal' data-bs-target='#modalSair'>SAIR</a>
                     </li>
 
                 </ul>

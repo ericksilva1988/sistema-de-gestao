@@ -82,10 +82,10 @@
                             if ($_SESSION['usuario-cadastrar']) {
 
                                 echo "<td> 
-                                    <a class='btn btn-secondary btn-sm' href='../../views/usuario/editar.php?id=$user_data[id]'>
+                                    <a class='btn btn-secondary btn-sm' href='../../views/usuario/editar.php?id=$user_data[id]' title='Editar usuario'>
                                         <img src='../../img/editar.svg'>
                                     </a>
-                                    <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($user_data[id], `$user_data[nome]`)'>
+                                    <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($user_data[id], `$user_data[nome]`)' title='Excluir usuario'>
                                         <img src='../../img/excluir.svg'>
                                     </a>
 

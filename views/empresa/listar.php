@@ -68,12 +68,12 @@
                                                         
                             if ($_SESSION['usuario-cadastrar']) {
                                 echo "<td>
-                                    <a class='btn btn-secondary btn-sm' href='../../views/empresa/editar.php?id=$dados_empresa[id]'>
+                                    <a class='btn btn-secondary btn-sm' href='../../views/empresa/editar.php?id=$dados_empresa[id]' title='Atualizar empresa'>
                                       <img src='../../img/editar.svg'>
                                     </a>
                                     
                                     <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' 
-                                    onclick='passaDadosModal($dados_empresa[id], `$dados_empresa[empresa]`)'>
+                                    onclick='passaDadosModal($dados_empresa[id], `$dados_empresa[empresa]`)' title='Excluir empresa'>
                                     
                                     <img src='../../img/excluir.svg'>
                                     </a>
