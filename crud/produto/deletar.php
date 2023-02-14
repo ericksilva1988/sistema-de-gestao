@@ -30,7 +30,7 @@
 
 	}
 
-	header('Location: ../../views/produto/lista.php');
+	header('Location: ../../views/produto/listar.php');
 
 
 

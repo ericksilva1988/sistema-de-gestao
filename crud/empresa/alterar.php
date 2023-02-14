@@ -13,6 +13,7 @@
         $telefone = $_POST['telefone'];
         $referencia = $_POST['referencia'];
         $segmento = $_POST['segmento'];
+        $endereco = $_POST['endereco'];
 
         
         $database = new db();
@@ -27,7 +28,7 @@
         
     }
 
-   header('Location: ../../views/empresa/lista.php');
+   header('Location: ../../views/empresa/listar.php');
 
     echo "Dados alterados com sucesso!!!";
 ?>

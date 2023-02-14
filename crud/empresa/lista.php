@@ -1,17 +1,13 @@
  <?php
     include_once("../../banco/conexao.php");
 
-    //$query = "select * from usuarios order by id desc";
+        $database = new db();
 
-                $database = new db();
+        $conexao = $database-> conecta_mysql();
 
-                $conexao = $database-> conecta_mysql();
+        $query = "select * from empresa order by id desc";
 
-                $query = "select * from empresa order by id desc";
-
-                $result = mysqli_query ($conexao, $query);
-    
-                //$nome = $row['nome'];
+        $result = mysqli_query ($conexao, $query);
                 
 
 
@@ -20,7 +16,7 @@
 
             $termoDeBusca = $_GET['pesquisar'];
             $queryBusca = "SELECT * FROM empresa WHERE id LIKE '%$termoDeBusca%' or empresa LIKE '%$termoDeBusca%' 
-            or cnpj LIKE '%$termoDeBusca%' or nome LIKE '%$termoDeBusca%' ORDER BY id DESC";     
+            or cnpj LIKE '%$termoDeBusca%' or nome LIKE '%$termoDeBusca%' ORDER BY id DESC";
 
             $result = mysqli_query ($conexao, $queryBusca);
             

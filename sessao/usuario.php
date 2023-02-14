@@ -36,7 +36,7 @@
                         if ($_SESSION['usuario-visualizar']) { ?>
                             
                             <li class="nav-item">
-                                <a class="btn btn-outline-primary" aria-current="page" href="../views/usuario/lista.php">USUÁRIO</a>
+                                <a class="btn btn-outline-primary" aria-current="page" href="../views/usuario/listar.php">USUÁRIO</a>
                             </li>
                         
                     <?php } ?>
@@ -44,25 +44,24 @@
 
                     
                     <li class="nav-item">
-                        <a class="btn btn-outline-primary" aria-current="page" href="../views/produto/lista.php">ESTOQUE</a>
+                        <a class="btn btn-outline-primary" aria-current="page" href="../views/produto/listar.php">ESTOQUE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-primary" aria-current="page" href="../views/fornecedor/lista.php">FORNECEDOR</a>
+                        <a class="btn btn-outline-primary" aria-current="page" href="../views/fornecedor/listar.php">FORNECEDOR</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-primary" aria-current="page" href="../views/cliente/lista.php">CLIENTE</a>
+                        <a class="btn btn-outline-primary" aria-current="page" href="../views/cliente/listar.php">CLIENTE</a>
                     </li>
                     <?php 
                          if ($_SESSION['eh-master']) { ?>
                             <li class="nav-item">
-                                <a class="btn btn-outline-primary" aria-current="page" href="../views/empresa/lista.php">EMPRESA</a>
+                                <a class="btn btn-outline-primary" aria-current="page" href="../views/empresa/listar.php">EMPRESA</a>
                             </li>
                     <?php } ?>
                     
                     </li>
                     <li class="nav-item">
-                        <a  class="nav-link"
-                            href="encerrar.php">SAIR</a>
+                        <a class="nav-link" data-bs-toggle='modal' data-bs-target='#modalSair'>SAIR</a>
                     </li>
 
                 </ul>
@@ -90,12 +89,8 @@
                     </b> Tem certeza que deseja sair da sessão?
                 </div>
                 <div class="modal-footer">
-                    <a href="encerrar.php">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    </a>
-                    <a href="encerrar.php">
-                        <button type="button" class="btn btn-danger">Cair Fora</button>
-                    </a>
+                    <a href="encerrar.php" class="btn btn-danger">Sair</a>
                 </div>
             </div>
         </div>
@@ -141,26 +136,6 @@
             }
 
             
-        </script>
-
-
-
-        <script type="text/javascript">
-            
-            var pesquisar = document.getElementById('pesquisar');
-            
-            pesquisar.addEventListener("keydown", function(event) {
-                if (event.key ==="Enter"){
-                    fazBusca();
-                }
-            });
-
-
-            function fazBusca() {
-            window.location = 'listar.php?pesquisar='+pesquisar.value;
-            }
-
- 
         </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

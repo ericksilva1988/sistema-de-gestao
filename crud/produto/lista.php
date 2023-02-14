@@ -2,29 +2,23 @@
 
     include_once("../../banco/conexao.php");
 
-    //$query = "select * from usuarios order by id desc";
+        $database = new db();
 
-                $database = new db();
+        $conexao = $database-> conecta_mysql();
 
-                $conexao = $database-> conecta_mysql();
+        $queryProdutos = "select * from produtos order by id desc";
 
-                $queryProdutos = "select * from produtos order by id desc";
+        $queryFornecedores = "select * from fornecedor order by id desc";
 
-                $queryFornecedores = "select * from fornecedor order by id desc";
+        $result = mysqli_query ($conexao, $queryProdutos);
 
-                $result = mysqli_query ($conexao, $queryProdutos);
-
-                $resultado = mysqli_query($conexao, $queryFornecedores);
-    
-                //$nome = $row['nome'];
-                
-
+        $resultado = mysqli_query($conexao, $queryFornecedores);
 
 
         if (!empty($_GET['pesquisar'])) {
 
             $termoDeBusca = $_GET['pesquisar'];
-            $queryBusca = "SELECT * FROM produtos WHERE id LIKE '%$termoDeBusca%' or descricao LIKE '%$termoDeBusca%' or `codigo-de-barras` LIKE '%$termoDeBusca%' ORDER BY id DESC";         
+            $queryBusca = "SELECT * FROM produtos WHERE id LIKE '%$termoDeBusca%' or descricao LIKE '%$termoDeBusca%' or `codigo-barra` LIKE '%$termoDeBusca%' ORDER BY id DESC";
             $result = mysqli_query ($conexao, $queryBusca);
             
             $msg = "Registros Encontrados";

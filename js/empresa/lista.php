@@ -24,7 +24,7 @@
 
 
             function fazBusca() {
-            window.location = 'lista.php?pesquisar='+pesquisar.value;
+            window.location = 'listar.php?pesquisar='+pesquisar.value;
             }
 
  

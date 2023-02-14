@@ -18,20 +18,18 @@
         $fiado = isset($_POST["fiado"]) ? 1 : 0;
 
         $idEmpresa = $_POST['id-empresa'];
-        
-       
-       
-                
+
         $database = new db();
 
         $conexao = $database-> conecta_mysql();
 
-        $query = "insert into cliente(nome,apelido,telefone,rua,numero,cep,cidade,estado,referencia,fiado,`id-empresa`) values ('$nome','$apelido','$telefone','$rua','$numero','$cep','$cidade','$estado','$referencia','$fiado','$idEmpresa')";
+        $query = "insert into cliente(nome,apelido,telefone,rua,numero,cep,cidade,estado,referencia,fiado,`id-empresa`)
+        values ('$nome','$apelido','$telefone','$rua','$numero','$cep','$cidade','$estado','$referencia','$fiado','$idEmpresa')";
 
         if (mysqli_query ($conexao, $query)) {
 
             echo 'Usuário cadastrado com sucesso!';
-            header('Location: ../../views/cliente/lista.php');
+            header('Location: ../../views/cliente/listar.php');
 
         }else{
 

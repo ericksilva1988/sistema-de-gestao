@@ -39,7 +39,7 @@
         if (mysqli_query ($conexao, $query)) {
 
             echo 'Usuário cadastrado com sucesso!';
-            header('Location: ../../views/usuario/lista.php');
+            header('Location: ../../views/usuario/listar.php');
 
         }else{
 

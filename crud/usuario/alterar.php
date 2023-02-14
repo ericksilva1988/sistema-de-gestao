@@ -35,5 +35,5 @@
                     
     }
 
-    header('Location: ../../views/usuario/lista.php');
+    header('Location: ../../views/usuario/listar.php');
 ?>

@@ -1,8 +1,8 @@
         <script type="text/javascript">
     
-            function passaDadosModal(id, descricao){
+            function modalDeletarItem(id, descricao){
                
-                document.querySelector('#nome-usuario').innerText=descricao;
+                document.querySelector('#descricao').innerText=descricao;
                 document.querySelector('#linkExcluir').href="../../crud/produto/deletar.php?id="+id;
                                 
             }
@@ -12,14 +12,15 @@
 
         <script type="text/javascript">
     
-            function passaDadosModal(id, descricao, estoque){
-               
-                document.querySelector('#nome-estoque').innerText=descricao;
-                document.querySelector('#numero-estoque').innerText=estoque;
-                document.querySelector('#linkEstoque').href="../../crud/produto/alterarEstoque.php?id="+id;
-                                
-            }
+            function modalAtualizarEstoque(id, descricao, estoqueAtual){
 
+                console.log(id, descricao, estoqueAtual);
+               
+                document.querySelector('#estoque-descricao').innerText=descricao;
+                document.querySelector('#estoque-atual-visivel').innerText=estoqueAtual;
+                document.querySelector('#estoque-atual').value=estoqueAtual;
+                document.querySelector('#id-produto').value=id;
+            }
             
         </script>
 
@@ -37,7 +38,7 @@
 
 
             function fazBusca() {
-            window.location = 'lista.php?pesquisar='+pesquisar.value;
+            window.location = 'listar.php?pesquisar='+pesquisar.value;
             }
 
  

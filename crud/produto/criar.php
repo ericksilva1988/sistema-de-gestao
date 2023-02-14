@@ -27,7 +27,7 @@
         if (mysqli_query ($conexao, $query)) {
 
             echo 'produto cadastrado com sucesso!';
-            header('Location: ../../views/produto/lista.php');
+            header('Location: ../../views/produto/listar.php');
 
         }else{
 

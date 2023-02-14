@@ -7,7 +7,7 @@
     <!-- /Menu superior-->
 
     <div class="container mt-5">
-        <h2 class="mb-4">Cadastrar cliente</h2>
+        <h2 class="mb-4">Editar cliente</h2>
         <h4>Dados básicos</h4>
         <form action="../../crud/cliente/alterar.php" method="POST">
             <div class="row">
@@ -47,35 +47,35 @@
                 <div class="col-lg-4 col-md-12 mt-3">
                     <label for="estado" class="form-label">Estado:*</label>
                     
-                        <select class="form-select" aria-label="Selecione um fornecedor" id="estado" name="estado" required>
-                            <option value="estado"><?=($estado == 'Selecione o Estado')?'selected':''?>Selecione o Estado</option> 
-                            <option value="ac"><?=($estado == 'ac')?'selected':''?>Acre</option> 
-                            <option value="al"><?=($estado == 'al')?'selected':''?>Alagoas</option> 
-                            <option value="am">Amazonas</option> 
-                            <option value="ap">Amapá</option> 
-                            <option value="ba">Bahia</option> 
-                            <option value="ce">Ceará</option> 
-                            <option value="df">Distrito Federal</option> 
-                            <option value="es">Espírito Santo</option> 
-                            <option value="go">Goiás</option> 
-                            <option value="ma">Maranhão</option> 
-                            <option value="mt">Mato Grosso</option> 
-                            <option value="ms">Mato Grosso do Sul</option> 
-                            <option value="mg">Minas Gerais</option> 
-                            <option value="pa">Pará</option> 
-                            <option value="pb">Paraíba</option> 
-                            <option value="pr">Paraná</option> 
-                            <option value="pe">Pernambuco</option> 
-                            <option value="pi">Piauí</option> 
-                            <option value="rj">Rio de Janeiro</option> 
-                            <option value="rn">Rio Grande do Norte</option> 
-                            <option value="ro">Rondônia</option> 
-                            <option value="rs">Rio Grande do Sul</option> 
-                            <option value="rr">Roraima</option> 
-                            <option value="sc">Santa Catarina</option> 
-                            <option value="se">Sergipe</option> 
-                            <option value="sp">São Paulo</option> 
-                            <option value="to">Tocantins</option> 
+                        <select class="form-select" aria-label="Selecione um Estado" id="estado" name="estado" required>
+                            <option value="estado">Selecione o Estado</option> 
+                            <option value="ac" <?php echo $estado == "ac" ? "selected" : ""; ?>>Acre</option> 
+                            <option value="al" <?php echo $estado == "al" ? "selected" : ""; ?>>Alagoas</option> 
+                            <option value="am" <?php echo $estado == "am" ? "selected" : ""; ?>>Amazonas</option> 
+                            <option value="ap" <?php echo $estado == "ap" ? "selected" : ""; ?>>Amapá</option> 
+                            <option value="ba" <?php echo $estado == "ba" ? "selected" : ""; ?>>Bahia</option> 
+                            <option value="ce" <?php echo $estado == "ce" ? "selected" : ""; ?>>Ceará</option> 
+                            <option value="df" <?php echo $estado == "df" ? "selected" : ""; ?>>Distrito Federal</option> 
+                            <option value="es" <?php echo $estado == "es" ? "selected" : ""; ?>>Espírito Santo</option> 
+                            <option value="go" <?php echo $estado == "go" ? "selected" : ""; ?>>Goiás</option> 
+                            <option value="ma" <?php echo $estado == "ma" ? "selected" : ""; ?>>Maranhão</option> 
+                            <option value="mt" <?php echo $estado == "mt" ? "selected" : ""; ?>>Mato Grosso</option> 
+                            <option value="ms" <?php echo $estado == "ms" ? "selected" : ""; ?>>Mato Grosso do Sul</option> 
+                            <option value="mg" <?php echo $estado == "mg" ? "selected" : ""; ?>>Minas Gerais</option> 
+                            <option value="pa" <?php echo $estado == "pa" ? "selected" : ""; ?>>Pará</option> 
+                            <option value="pb" <?php echo $estado == "pb" ? "selected" : ""; ?>>Paraíba</option> 
+                            <option value="pr" <?php echo $estado == "pr" ? "selected" : ""; ?>>Paraná</option> 
+                            <option value="pe" <?php echo $estado == "pe" ? "selected" : ""; ?>>Pernambuco</option> 
+                            <option value="pi" <?php echo $estado == "pi" ? "selected" : ""; ?>>Piauí</option> 
+                            <option value="rj" <?php echo $estado == "rj" ? "selected" : ""; ?>>Rio de Janeiro</option> 
+                            <option value="rn" <?php echo $estado == "rn" ? "selected" : ""; ?>>Rio Grande do Norte</option> 
+                            <option value="ro" <?php echo $estado == "ro" ? "selected" : ""; ?>>Rondônia</option> 
+                            <option value="rs" <?php echo $estado == "rs" ? "selected" : ""; ?>>Rio Grande do Sul</option> 
+                            <option value="rr" <?php echo $estado == "rr" ? "selected" : ""; ?>>Roraima</option> 
+                            <option value="sc" <?php echo $estado == "sc" ? "selected" : ""; ?>>Santa Catarina</option> 
+                            <option value="se" <?php echo $estado == "se" ? "selected" : ""; ?>>Sergipe</option> 
+                            <option value="sp" <?php echo $estado == "sp" ? "selected" : ""; ?>>São Paulo</option> 
+                            <option value="to" <?php echo $estado == "to" ? "selected" : ""; ?>>Tocantins</option> 
                         </select>
                         
                 </div>

@@ -1,8 +1,8 @@
 <?php include"../../sessao/validarSessao.php"; ?>
 
-<?php include"../../crud/fornecedor/lista.php"; ?>
+<?php include"../../crud/empresa/lista.php"; ?>
 
-<?php include"../../componentes/fornecedor/head.php";  ?>
+<?php include"../../componentes/empresa/head.php";  ?>
 
    
     
@@ -10,9 +10,9 @@
 
 
     <div class="container mt-5">
-        <h2 class="mb-4">Lista de Fornecedores</h2>
+        <h2 class="mb-4">Empresas</h2>
         <div class="row mb-4">
-            <?php
+            <?php 
                 if ($_SESSION['usuario-cadastrar']) { ?>
                     <div class="col-md-2 col-lg-2 col-xl-1 mb-2">
                         <a href="cadastrar.php" class="btn btn-primary">Cadastrar</a>
@@ -32,21 +32,20 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">id</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">CNPJ</th>
                     <th scope="col">Empresa</th>
-                    <?php 
-                        if ($_SESSION['usuario-cadastrar']) { ?>
-                            <th scope="col">CNPJ</th>
-                    <?php } ?>
-                    <th scope="col">Telefone</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Endereço</th>
                     <th scope="col">E-mail</th>
-                    <th scope="col">Representação</th>
-                    <th scope="col">Representante</th>
-                    <!-- <th scope="col">Observações</th> -->
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Referência</th>
+                    <th scope="col">Segmento</th>
                     <?php
                         if ($_SESSION['usuario-cadastrar']) { ?>
                             <th scope="col">Ações</th>
                     <?php } ?>
+
 
                 </tr>
             </thead>
@@ -54,28 +53,27 @@
                 
                 <?php 
 
-                        while($dados_fornecedor = mysqli_fetch_assoc($result)) {
+                        while($dados_empresa = mysqli_fetch_assoc($result)) {
                             
                             echo "<tr>";
-                            echo "<td>" . $dados_fornecedor['id'] . "</td>";
-                            echo "<td>" . $dados_fornecedor['empresa'] . "</td>";
-                                if ($_SESSION['usuario-cadastrar']) { 
-                                    echo "<td>" . $dados_fornecedor['cnpj'] . "</td>";
-                                }
-                            echo "<td>" . $dados_fornecedor['telefone'] . "</td>";
-                            echo "<td>" . $dados_fornecedor['email'] . "</td>";
-                            echo "<td>" . $dados_fornecedor['representacao'] . "</td>";
-                            echo "<td>" . $dados_fornecedor['representante'] . "</td>";
-                            // echo "<td>" . $dados_fornecedor['observacoes'] . "</td>";
+                            echo "<td>" . $dados_empresa['id'] . "</td>";
+                            echo "<td>" . $dados_empresa['cnpj'] . "</td>";
+                            echo "<td>" . $dados_empresa['empresa'] . "</td>";
+                            echo "<td>" . $dados_empresa['nome'] . "</td>";
+                            echo "<td>" . $dados_empresa['endereco'] . "</td>";
+                            echo "<td>" . $dados_empresa['email'] . "</td>";
+                            echo "<td>" . $dados_empresa['telefone'] . "</td>";
+                            echo "<td>" . $dados_empresa['referencia'] . "</td>";
+                            echo "<td>" . $dados_empresa['segmento'] . "</td>";
                                                         
                             if ($_SESSION['usuario-cadastrar']) {
                                 echo "<td>
-                                    <a href='../../views/fornecedor/recuperar.php?id=$dados_fornecedor[id]'>
+                                    <a href='../../views/empresa/editar.php?id=$dados_empresa[id]'>
                                       <img src='../../img/editar.svg'>
                                     </a>
                                     
                                     <a data-bs-toggle='modal' data-bs-target='#modalPadrao' 
-                                    onclick='passaDadosModal($dados_fornecedor[id], `$dados_fornecedor[empresa]`)'>
+                                    onclick='passaDadosModal($dados_empresa[id], `$dados_empresa[empresa]`)'>
                                     
                                     <img src='../../img/excluir.svg'>
                                     </a>
@@ -112,7 +110,7 @@
 
     <!-- /Modal -->
 
-        <?php include"../../js/fornecedor/lista.php"; ?>
+        <?php include"../../js/empresa/lista.php"; ?>
 </body>
 
 </html>

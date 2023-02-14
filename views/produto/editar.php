@@ -7,7 +7,7 @@
     <!-- /Menu superior-->
 
     <div class="container mt-5">
-        <h2 class="mb-4">Cadastrar produto</h2>
+        <h2 class="mb-4">Editar produto</h2>
         <form action="../../crud/produto/alterar.php" method="POST">
             <div class="row">
                 <div class="col mt-3">
@@ -70,15 +70,15 @@
 
                             while($dadosDoProduto = mysqli_fetch_assoc($resultado)) { 
 
-                                    $id = $dadosDoProduto['id'];
+                                    $idFornecedor = $dadosDoProduto['id'];
                                     $empresa = $dadosDoProduto['empresa'];
 
                     ?>
-                    
-                            <option value="<?php echo $id; ?>"><?php echo $empresa; ?></option>    
-
-                   
-                       <?php }  ?>
+                            <option value="<?php echo $idFornecedor; ?>" <?php echo $fornecedor == $idFornecedor ? "selected" : ""; ?>>
+                                <?php echo $empresa; ?>
+                            </option>
+                       
+                    <?php }  ?>
                             
                     </select>
                 </div>

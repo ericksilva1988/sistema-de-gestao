@@ -16,7 +16,7 @@
 
 
     <div class="container mt-5">
-        <h2 class="mb-4">Listar usuários</h2>
+        <h2 class="mb-4">Usuários</h2>
         <div class="row mb-4">
             <?php 
 
@@ -82,7 +82,7 @@
                             if ($_SESSION['usuario-cadastrar']) {
 
                                 echo "<td> 
-                                    <a href='../../views/usuario/recuperar.php?id=$user_data[id]'>
+                                    <a href='../../views/usuario/editar.php?id=$user_data[id]'>
                                         <img src='../../img/editar.svg'>
                                     </a>
                                     <a data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($user_data[id], `$user_data[nome]`)'>
