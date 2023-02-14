@@ -78,7 +78,7 @@
 
                             while($dadosDoFornecedor = mysqli_fetch_assoc($resultado)) { 
 
-                                    $id = $dadosDoFornecedor['id'];
+                                    $idFornecedor = $dadosDoFornecedor['id'];
                                     $empresa = $dadosDoFornecedor['empresa'];
                             ?>
                     
