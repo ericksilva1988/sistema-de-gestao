@@ -91,7 +91,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Tem certeza que deseja excluir o Cliente <b><strong id="nome-usuario"></strong></b>?
+                        Tem certeza que deseja excluir o cliente <b><strong id="nome-cliente"></strong></b>?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>

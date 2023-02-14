@@ -2,7 +2,7 @@
     
             function passaDadosModal(id, empresa){
                
-                document.querySelector('#nome-usuario').innerText=empresa;
+                document.querySelector('#nome-empresa').innerText=empresa;
                 document.querySelector('#linkExcluir').href="../../crud/empresa/deletar.php?id="+id;
                                 
             }

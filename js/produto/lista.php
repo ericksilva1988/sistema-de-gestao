@@ -2,7 +2,7 @@
     
             function modalDeletarItem(id, descricao){
                
-                document.querySelector('#descricao').innerText=descricao;
+                document.querySelector('#descricao-produto').innerText=descricao;
                 document.querySelector('#linkExcluir').href="../../crud/produto/deletar.php?id="+id;
                                 
             }
