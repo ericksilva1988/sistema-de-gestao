@@ -103,10 +103,14 @@
         crossorigin="anonymous"></script>
     
     <!-- /Menu superior-->
+    
+    
 
     <div class="container mt-5">
         <div class="row">
+
             <div class="col">
+
                 <h2 class="mb-8">Estatísticas do Sistema</h2>
             </div>
         </div>
@@ -122,7 +126,9 @@
             
             
             
-
+<footer>
+    <?php include"../componentes/tempo.php"; ?>
+</footer>
 
     <!-- /Modal -->
 

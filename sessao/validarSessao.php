@@ -7,9 +7,9 @@
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
                                 
-        //header('Location: lista.php');
+        header('Location: ../index.php');
 
-        //$login = $_SESSION['login'];
+        
 
 
     }
