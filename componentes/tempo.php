@@ -4,7 +4,7 @@
 
         //echo strftime( '%e-%m-%Y %T', strtotime('now'));
 
-        $hour = date("H"); setlocale(LC_TIME,"portuguese"); echo strftime("%d de %b de %Y"); 
+        $tempo = date("H"); setlocale(LC_TIME,"portuguese"); echo strftime("%d de %b de %Y"); 
         //echo strftime("%H:%M");
 
 

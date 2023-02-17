@@ -58,6 +58,7 @@
                             echo "<td>" . $dados_cliente['telefone'] . "</td>";
                             echo "<td>" . $dados_cliente['rua'] . "</td>";
                             echo "<td>" . $dados_cliente['referencia'] . "</td>";
+                            echo "<td>" . $dados_cliente['criado-em'] . "</td>";
                             $fiado = $dados_cliente['fiado'] == 1 ? "SIM" : "NÃO";
                             echo "<td>" . $fiado . "</td>";
                                 

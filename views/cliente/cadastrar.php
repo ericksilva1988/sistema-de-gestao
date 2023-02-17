@@ -60,6 +60,7 @@
 
                         $queryEstado = "select * from estado";
 
+
                         $resultado = mysqli_query ($conexao, $queryEstado);
 
                         //print_r($resultado);
@@ -105,7 +106,15 @@
                     <a href="listar.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
                 </div>
             </div>
-            <input type="hidden" name="id-empresa" id="id-empresa" value="<?php echo $_SESSION['id-empresa']; ?>">
+            <input type="hidden" name="criado-em" id="criado-em" 
+            <?php 
+                date_default_timezone_set('America/Sao_paulo');
+                //$hora = DateTime::createFromFormat('Y-m-d H:i:s', $hora); 
+                //echo date("Y-m-d", strtotime('birthdate')); ?>
+                
+                value="<?php echo $hora = DateTime::createFromFormat('Y-m-d H:i:s', $hora);  ?> ">
+
+            <input type="hidden" name="id-empresa" id="id-empresa" value="<?php echo $_SESSION['id-empresa']; ?>"> <?php echo $hora; ?>
         </form>
         
     </div>
@@ -113,3 +122,8 @@
 </body>
 
 </html>
+
+<?php
+ //$date = date("Y-m-d", strtotime($_GET['birthdate'])); //converte para tipo date mysqli_query($conexao, "INSERT INTO tabela (birthday) VALUES ($date)");
+
+?>
