@@ -13,12 +13,15 @@
         $cidade = $_POST['cidade'];
         $estado = $_POST['estado'];
         $referencia = $_POST['referencia'];
+                
         $criadoEm = $_POST['criado-em'];
 
                         
         $fiado = isset($_POST["fiado"]) ? 1 : 0;
 
         $idEmpresa = $_POST['id-empresa'];
+
+        //echo $criadoEm;
 
         $database = new db();
 
@@ -31,7 +34,7 @@
         if (mysqli_query ($conexao, $query)) {
 
             echo 'Usuário cadastrado com sucesso!';
-            header('Location: ../../views/cliente/listar.php');
+           // header('Location: ../../views/cliente/listar.php');
 
         }else{
 

@@ -4,6 +4,8 @@
 
 <?php include"../../componentes/cliente/head.php"; ?>
 
+<?php date_default_timezone_set('America/Sao_paulo'); ?>
+
     <!-- /Menu superior-->
 
     <div class="container mt-5">
@@ -106,15 +108,13 @@
                     <a href="listar.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
                 </div>
             </div>
-            <input type="hidden" name="criado-em" id="criado-em" 
-            <?php 
-                date_default_timezone_set('America/Sao_paulo');
+            <input type="hidden" name="criado-em" id="criado-em" <?php                 
                 //$hora = DateTime::createFromFormat('Y-m-d H:i:s', $hora); 
                 //echo date("Y-m-d", strtotime('birthdate')); ?>
-                
-                value="<?php echo $hora = DateTime::createFromFormat('Y-m-d H:i:s', $hora);  ?> ">
+                <?php //echo DateTime::createFromFormat('Y-m-d H:i:s', $hora);  ?>
+                value=" <?php $hoje = date('Y-m-d H:i:s'); echo $hoje; ?> ">
 
-            <input type="hidden" name="id-empresa" id="id-empresa" value="<?php echo $_SESSION['id-empresa']; ?>"> <?php echo $hora; ?>
+            <input type="hidden" name="id-empresa" id="id-empresa" value="<?php echo $_SESSION['id-empresa']; ?>"> <?php echo $hoje; ?>
         </form>
         
     </div>

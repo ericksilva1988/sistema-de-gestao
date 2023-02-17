@@ -25,6 +25,8 @@
 
         $queryUpdate = "update cliente set nome='$nome',apelido='$apelido',telefone='$telefone',rua='$rua',numero='$numero',cep='$cep',cidade='$cidade',estado='$estado',referencia='$referencia',fiado='$fiado' where `id`='$id'";
 
+        
+
         $result = mysqli_query ($conexao, $queryUpdate);
 
                     
