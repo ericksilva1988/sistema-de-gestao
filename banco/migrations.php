@@ -6,7 +6,7 @@
 
     $conexao = $database-> conecta_mysql();
 
-    $criaBancoDeDados = "create database if not exists `sistema-comercial`";
+    // o banco sistema-comercial deve ser criado no phpmyadmin primeiro
 
     $criaTabelaUsuarios = "create TABLE if not exists `sistema-comercial`.`usuarios` (`id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(255) NOT NULL , `cargo` VARCHAR(255) NOT NULL , `login` VARCHAR(255) NOT NULL , `senha` VARCHAR(255) NOT NULL , `alterar-senha` BOOLEAN NOT NULL , `usuario-visualizar` BOOLEAN NOT NULL , `usuario-cadastrar` BOOLEAN NOT NULL , `cliente-visualizar` BOOLEAN NOT NULL , `cliente-cadastrar` BOOLEAN NOT NULL , `caixa-visualizar` BOOLEAN NOT NULL , `caixa-cadastrar` BOOLEAN NOT NULL , `estoque-visualizar` BOOLEAN NOT NULL , `estoque-cadastrar` BOOLEAN NOT NULL , `id-empresa` INT NOT NULL , `eh-admin` BOOLEAN NOT NULL , `eh-master` BOOLEAN NOT NULL , `criado-em` TIMESTAMP NULL , `atualziado-em` TIMESTAMP NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB";
     

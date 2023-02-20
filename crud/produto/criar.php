@@ -5,17 +5,17 @@
        require_once('../../banco/conexao.php');
 
         $descricao = $_GET['descricao'];
-        $custo = $_GET['custo'];
-        $venda = $_GET['venda'];
-        $estoqueMinimo = $_GET['estoque-minimo'];
-        $estoqueAtual = $_GET['estoque-atual'];
+        $custo = floatval($_GET['custo']);
+        $venda = floatval($_GET['venda']);
+        $estoqueMinimo = intval($_GET['estoque-minimo']);
+        $estoqueAtual = intval($_GET['estoque-atual']);
         $codigoBarra = $_GET['codigo-barra'];
-        $fornecedor = $_GET['fornecedor'];
+        $fornecedor = intval($_GET['fornecedor']);
         $marca = $_GET['marca'];
         $modelo = $_GET['modelo'];
-        $peso = $_GET['peso'];
+        $peso = floatval($_GET['peso']);
         $observacoes = $_GET['observacoes'];
-        $idEmpresa = $_GET['id-empresa'];
+        $idEmpresa = intval($_GET['id-empresa']);
                       
         $database = new db();
 
