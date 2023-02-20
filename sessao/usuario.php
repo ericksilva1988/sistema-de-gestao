@@ -47,6 +47,9 @@
                         <a class="btn btn-outline-primary" aria-current="page" href="../views/produto/listar.php">ESTOQUE</a>
                     </li>
                     <li class="nav-item">
+                        <a class="btn btn-outline-primary" aria-current="page" href="../views/caixa/listar.php">CAIXA</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="btn btn-outline-primary" aria-current="page" href="../views/fornecedor/listar.php">FORNECEDOR</a>
                     </li>
                     <li class="nav-item">
