@@ -18,7 +18,7 @@
         $conexao = $database-> conecta_mysql();
 
         $query = "insert into fornecedor (empresa,cnpj,telefone,email,representacao,representante,observacoes,`id-empresa`) 
-        values ('$empresa','$cnpj','$telefone','$email','$representacao','$representante','$observacoes','$idEmpresa')";
+        values ('$empresa','$cnpj','$telefone','$email','$representacao','$representante','$observacoes',$idEmpresa)";
 
         if (mysqli_query ($conexao, $query)) {
 

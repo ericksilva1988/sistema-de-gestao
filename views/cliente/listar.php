@@ -69,7 +69,7 @@
                                     <a class='btn btn-secondary btn-sm' href='../../views/cliente/editar.php?id=$dados_cliente[id]' title='Atualizar cliente'>
                                       <img src='../../img/editar.svg'>
                                     </a>
-                                    <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_cliente[id], `$dados_cliente[nome]`)' title='Excluir cliente'>
+                                    <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($dados_cliente[id], `$dados_cliente[nome]`, `cliente`)' title='Excluir cliente'>
                                         <img src='../../img/excluir.svg'>
                                     </a>
 
@@ -92,7 +92,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Tem certeza que deseja excluir o cliente <b><strong id="nome-cliente"></strong></b>?
+                        Tem certeza que deseja excluir o cliente <strong id="nome-entidade"></strong>?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
@@ -105,7 +105,7 @@
 
     <!-- /Modal -->
 
-        <?php include "../../js/cliente/lista.php"; ?>
+    <?php include "../../componentes/footer.php"; ?>
 </body>
 
 </html>
