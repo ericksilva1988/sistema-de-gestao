@@ -25,7 +25,7 @@
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="telefone" class="form-label">Telefone:*</label>
                     <input type="text" class="form-control" id="telefone" name="telefone"
-                        placeholder="Informe o Telefone" required />
+                        placeholder="Informe o Telefone" />
                 </div>
             </div>
             <div class="row">

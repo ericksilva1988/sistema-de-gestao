@@ -23,7 +23,7 @@
         $conexao = $database-> conecta_mysql();
 
         $query = "insert into produtos (descricao,custo,venda,`estoque-minimo`,`estoque-atual`,`codigo-barra`,fornecedor,marca,modelo,peso,observacoes,`id-empresa`,`criado-em`)
-        values ('$descricao','$custo','$venda','$estoqueMinimo','$estoqueAtual','$codigoBarra','$fornecedor','$marca','$modelo','$peso','$observacoes','$idEmpresa','$criadoEm')";
+        values ('$descricao',$custo,$venda,$estoqueMinimo,$estoqueAtual,'$codigoBarra','$fornecedor','$marca','$modelo',$peso,'$observacoes',$idEmpresa,'$criadoEm')";
 
         if (mysqli_query ($conexao, $query)) {
 

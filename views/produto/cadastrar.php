@@ -40,12 +40,12 @@
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="estoque-minimo" class="form-label">Estoque mínimo:*</label>
                     <input type="text" class="form-control" id="estoque-minimo" name="estoque-minimo"
-                        placeholder="Informe a quantidade mínima do produto no estoque" required />
+                        placeholder="Informe a quantidade mínima do produto no estoque" />
                 </div>
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="estoque-atual" class="form-label">Estoque atual:*</label>
                     <input type="text" class="form-control" id="estoque-atual" name="estoque-atual"
-                        placeholder="Informe a quantidade de itens desse produto nesse momento" required />
+                        placeholder="Informe a quantidade de itens desse produto nesse momento" />
                 </div>
             </div>
             <div class="row">

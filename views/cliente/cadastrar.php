@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-lg-3 col-md-12 mt-3">
                     <label for="cep" class="form-label">CEP</label>
-                    <input type="text" class="form-control" id="cep" name="cep" placeholder="Informe o CEP" required />
+                    <input type="text" class="form-control" id="cep" name="cep" placeholder="Informe o CEP"  />
                 </div>
                 <div class="col-lg-4 col-md-12 mt-3">
                     <label for="cidade" class="form-label">Cidade:</label>

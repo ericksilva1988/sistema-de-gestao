@@ -35,7 +35,7 @@
         $query = "insert into usuarios(nome,cargo,login,senha,`alterar-senha`,`usuario-visualizar`,`usuario-cadastrar`,
         `cliente-visualizar`,`cliente-cadastrar`,`caixa-visualizar`,`caixa-cadastrar`,`estoque-visualizar`,`estoque-cadastrar`,`eh-admin`,`eh-master`,`id-empresa`,`criado-em`) 
         values ('$nome','$cargo','$login','$senha','$alterarSenha','$usuarioVisualizar','$usuarioCadastrar','$clienteVisualizar',
-        '$clienteCadastrar','$caixaVisualizar','$caixaCadastrar','$estoqueVisualizar','$estoqueCadastrar','$admin','$master','$idEmpresa','$criadoEm')";
+        '$clienteCadastrar','$caixaVisualizar','$caixaCadastrar','$estoqueVisualizar','$estoqueCadastrar','$admin','$master',$idEmpresa,'$criadoEm')";
 
         if (mysqli_query ($conexao, $query)) {
 

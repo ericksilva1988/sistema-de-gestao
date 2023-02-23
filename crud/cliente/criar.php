@@ -28,7 +28,7 @@
         $conexao = $database-> conecta_mysql();
 
         $query = "insert into cliente(nome,apelido,telefone,rua,numero,cep,cidade,estado,referencia,fiado,`id-empresa`,`criado-em`)
-        values ('$nome','$apelido','$telefone','$rua','$numero','$cep','$cidade','$estado','$referencia','$fiado','$idEmpresa','$criadoEm')";
+        values ('$nome','$apelido','$telefone','$rua','$numero','$cep','$cidade','$estado','$referencia','$fiado',$idEmpresa,'$criadoEm')";
 
 
         if (mysqli_query ($conexao, $query)) {

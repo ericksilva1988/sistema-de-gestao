@@ -13,24 +13,21 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="nome" class="form-label">Nome:*</label>
-                    <input type="text" class="form-control" name="nome" id="nome" value="<?php echo $nome; ?>" required />
+                    <input type="text" class="form-control" name="nome" id="nome" value="<?php echo $nome; ?>" />
                 </div>
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="cargo" class="form-label">Cargo/Função:*</label>
-                    <input type="text" class="form-control" id="cargo" name="cargo" value="<?php echo $cargo; ?>"
-                        required />
+                    <input type="text" class="form-control" id="cargo" name="cargo" value="<?php echo $cargo; ?>" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-12 mt-3">
                     <label for="login" class="form-label">Login:*</label>
-                    <input type="text" class="form-control" id="login" name="login" value="<?php echo $login; ?>"
-                        required />
+                    <input type="text" class="form-control" id="login" name="login" value="<?php echo $login; ?>" />
                 </div>
                 <div class="col-lg-4 col-md-12 mt-3">
                     <label for="senha" class="form-label">Senha padrão:*</label>
-                    <input type="text" class="form-control" id="senha" name="senha" value="<?php echo $senha; ?>"
-                        required />
+                    <input type="text" class="form-control" id="senha" name="senha" value="<?php echo $senha; ?>" />
                 </div>
                 <div class="col-lg-4 col-md-12 mt-3">
                     <label for="alterar-senha" class="form-label">Alterar senha:</label>

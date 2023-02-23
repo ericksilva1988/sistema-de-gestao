@@ -54,8 +54,10 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Login</th>
                     <th scope="col">Senha</th>
-                    <th scope="col">É admin</th>
-                    <th scope="col">É master</th>
+                    <?php  if ($_SESSION['eh-master']) { ?>
+                        <th scope="col">É admin</th>
+                        <th scope="col">É master</th>
+                    <?php } ?>
                     <th scope="col">Registro(Criado)</th>
                     <th scope="col">Registro(Alterado)</th>
                     <?php if ($_SESSION['usuario-cadastrar']) { ?>
@@ -76,10 +78,12 @@
                     echo "<td>" . $user_data['senha'] . "</td>";
                     //echo "<td>" . $user_data['admin'] . "</td>";
                     //echo "<td>" . $user_data['master'] . "</td>";
-                    $admin = $user_data['eh-admin'] == 1 ? "SIM" : "NÃO";
-                            echo "<td>" . $admin . "</td>";
-                    $master = $user_data['eh-master'] == 1 ? "SIM" : "NÃO";
-                            echo "<td>" . $master . "</td>";
+                    if ($_SESSION['eh-master']) {
+                        $admin = $user_data['eh-admin'] == 1 ? "SIM" : "NÃO";
+                                echo "<td>" . $admin . "</td>";
+                        $master = $user_data['eh-master'] == 1 ? "SIM" : "NÃO";
+                                echo "<td>" . $master . "</td>";
+                        }
                     echo "<td>" . $user_data['criado-em'] . "</td>";
                     echo "<td>" . $user_data['atualizado-em'] . "</td>";
                     

@@ -12,37 +12,31 @@
             <div class="row">
                 <div class="col mt-3">
                     <label for="empresa" class="form-label">Empresa:*</label>
-                    <input type="text" class="form-control" id="empresa" name="empresa" value="<?php echo $empresa; ?>"
-                        placeholder="Informe a empresa" required />
+                    <input type="text" class="form-control" id="empresa" name="empresa" value="<?php echo $empresa; ?>" placeholder="Informe a empresa" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="cnpj" class="form-label">CNPJ:</label>
-                    <input type="text" class="form-control" id="cnpj" name="cnpj" value="<?php echo $cnpj; ?>"
-                        placeholder="Informe o CNPJ" />
+                    <input type="text" class="form-control" id="cnpj" name="cnpj" value="<?php echo $cnpj; ?>" placeholder="Informe o CNPJ" />
                 </div>
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="telefone" class="form-label">Telefone:*</label>
-                    <input type="text" class="form-control" id="telefone" name="telefone" value="<?php echo $telefone; ?>"
-                        placeholder="Informe o Telefone" required />
+                    <input type="text" class="form-control" id="telefone" name="telefone" value="<?php echo $telefone; ?>" placeholder="Informe o Telefone" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>"
-                        placeholder="Informe o E-mail" />
+                    <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" placeholder="Informe o E-mail" />
                 </div>
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="representacao" class="form-label">Seguimento de representação:</label>
-                    <input type="text" class="form-control" id="representacao" name="representacao" value="<?php echo $representacao; ?>"
-                        placeholder="Informe qual representação/seguimento de produto" />
+                    <input type="text" class="form-control" id="representacao" name="representacao" value="<?php echo $representacao; ?>" placeholder="Informe qual representação/seguimento de produto" />
                 </div>
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="representante" class="form-label">Nome do Represenante:</label>
-                    <input type="text" class="form-control" id="representante" name="representante" value="<?php echo $representante; ?>"
-                        placeholder="Informe o nome do representante/vendedor" />
+                    <input type="text" class="form-control" id="representante" name="representante" value="<?php echo $representante; ?>" placeholder="Informe o nome do representante/vendedor" />
                 </div>
             </div>
             
@@ -59,7 +53,7 @@
                         value=" <?php $hoje = date('Y-m-d H:i:s'); echo $hoje; ?> ">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <button type="submit" name="submit" class="btn btn-primary alinhar-a-direita ms-2">Alterar</button>
-                    <a href="lista.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
+                    <a href="listar.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
                 </div>
             </div>
         </form>

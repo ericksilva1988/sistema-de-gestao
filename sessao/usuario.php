@@ -40,21 +40,34 @@
                             </li>
                         
                     <?php } ?>
-                    
+                    <?php 
 
-                    
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary" aria-current="page" href="../views/produto/listar.php">ESTOQUE</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary" aria-current="page" href="../views/caixa/listar.php">CAIXA</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary" aria-current="page" href="../views/fornecedor/listar.php">FORNECEDOR</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary" aria-current="page" href="../views/cliente/listar.php">CLIENTE</a>
-                    </li>
+                        if ($_SESSION['estoque-visualizar']) { ?>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-primary" aria-current="page" href="../views/produto/listar.php">ESTOQUE</a>
+                            </li>
+                    <?php } ?>
+                    <?php 
+
+                        if ($_SESSION['caixa-visualizar']) { ?>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-primary" aria-current="page" href="../views/caixa/listar.php">CAIXA</a>
+                            </li>
+                    <?php } ?>
+                    <?php 
+
+                        if ($_SESSION['estoque-visualizar']) { ?>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-primary" aria-current="page" href="../views/fornecedor/listar.php">FORNECEDOR</a>
+                            </li>
+                    <?php } ?>
+                    <?php 
+
+                        if ($_SESSION['cliente-visualizar']) { ?>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-primary" aria-current="page" href="../views/cliente/listar.php">CLIENTE</a>
+                            </li>
+                    <?php } ?>
                     <?php 
                          if ($_SESSION['eh-master']) { ?>
                             <li class="nav-item">

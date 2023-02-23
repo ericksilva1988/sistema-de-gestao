@@ -27,20 +27,17 @@
                 </div>
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="cargo" class="form-label">Cargo/Função:</label>
-                    <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Informe qual o cargo ou função"
-                         />
+                    <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Informe qual o cargo ou função"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-12 mt-3">
                     <label for="login" class="form-label">Login:*</label>
-                    <input type="text" class="form-control" id="login" name="login" placeholder="Informe qual o login ou função"
-                        required />
+                    <input type="text" class="form-control" id="login" name="login" placeholder="Informe qual o login ou função" required />
                 </div>
                 <div class="col-lg-4 col-md-12 mt-3">
                     <label for="senha" class="form-label">Senha padrão:*</label>
-                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite a senha padrão" value="123456"
-                        required />
+                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite a senha padrão" value="123456" required />
                 </div>
                 <div class="col-lg-4 col-md-12 mt-3">
                     <label for="mudar-senha" class="form-label">Alterar senha:</label>
@@ -160,7 +157,7 @@
             <div class="row mt-5">
                 <div class="col">
                     <button type="submit" name="submit" class="btn btn-primary alinhar-a-direita ms-2">Cadastrar</button>
-                    <a href="lista.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
+                    <a href="listar.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
                 </div>
             </div>
             <input type="hidden" name="criado-em" id="criado-em" 

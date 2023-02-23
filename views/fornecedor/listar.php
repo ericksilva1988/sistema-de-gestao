@@ -5,7 +5,6 @@
 <?php include"../../componentes/fornecedor/head.php";  ?>
 
    
-    
     <!-- /Menu superior-->
 
 

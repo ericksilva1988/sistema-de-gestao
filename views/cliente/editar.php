@@ -20,36 +20,35 @@
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="apelido" class="form-label">Apelido:*</label>
                     <input type="text" class="form-control" id="apelido" name="apelido" value="<?php echo $apelido ?>"
-                        required />
+                         />
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-12 mt-3">
                     <label for="telefone" class="form-label">Telefone:*</label>
                     <input type="text" class="form-control" id="telefone" name="telefone" value="<?php echo $telefone ?>"
-                        required />
+                         />
                 </div>
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="rua" class="form-label">Rua:*</label>
-                    <input type="text" class="form-control" id="ruarua" name="rua" value="<?php echo $rua ?>"
-                        required />
+                    <input type="text" class="form-control" id="ruarua" name="rua" value="<?php echo $rua ?>"/>
                 </div>
                 <div class="col-lg-2 col-md-12 mt-3">
                     <label for="numero" class="form-label">Número:*</label>
-                    <input type="text" class="form-control" id="numero" name="numero" value="<?php echo $numero ?>" required />
+                    <input type="text" class="form-control" id="numero" name="numero" value="<?php echo $numero ?>"  />
                 </div>
                 <div class="col-lg-3 col-md-12 mt-3">
                     <label for="cep" class="form-label">CEP</label>
-                    <input type="text" class="form-control" id="cep" name="cep" value="<?php echo $cep ?>" required />
+                    <input type="text" class="form-control" id="cep" name="cep" value="<?php echo $cep ?>"  />
                 </div>
                 <div class="col-lg-4 col-md-12 mt-3">
                     <label for="cidade" class="form-label">Cidade:*</label>
-                    <input type="text" class="form-control" id="cidade" name="cidade" value="<?php echo $cidade ?>" required />
+                    <input type="text" class="form-control" id="cidade" name="cidade" value="<?php echo $cidade ?>" />
                 </div>
                 <div class="col-lg-4 col-md-12 mt-3">
                     <label for="estado" class="form-label">Estado:*</label>
                     
-                        <select class="form-select" aria-label="Selecione um Estado" id="estado" name="estado" required>
+                        <select class="form-select" aria-label="Selecione um Estado" id="estado" name="estado" >
                             <option value="estado">Selecione o Estado</option> 
                             <option value="ac" <?php echo $estado == "ac" ? "selected" : ""; ?>>Acre</option> 
                             <option value="al" <?php echo $estado == "al" ? "selected" : ""; ?>>Alagoas</option> 
@@ -107,7 +106,7 @@
                         value=" <?php $hoje = date('Y-m-d H:i:s'); echo $hoje; ?> ">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <button type="submit" name="submit" class="btn btn-primary alinhar-a-direita ms-2">Alterar</button>
-                    <a href="lista.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
+                    <a href="listar.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
                 </div>
             </div>
         </form>
