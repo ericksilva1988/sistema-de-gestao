@@ -108,13 +108,10 @@
                     <a href="listar.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
                 </div>
             </div>
-            <input type="hidden" name="criado-em" id="criado-em" <?php                 
-                //$hora = DateTime::createFromFormat('Y-m-d H:i:s', $hora); 
-                //echo date("Y-m-d", strtotime('birthdate')); ?>
-                <?php //echo DateTime::createFromFormat('Y-m-d H:i:s', $hora);  ?>
+            <input type="hidden" name="criado-em" id="criado-em" 
                 value=" <?php $hoje = date('Y-m-d H:i:s'); echo $hoje; ?> ">
 
-            <input type="hidden" name="id-empresa" id="id-empresa" value="<?php echo $_SESSION['id-empresa']; ?>"> <?php echo $hoje; ?>
+            <input type="hidden" name="id-empresa" id="id-empresa" value="<?php echo $_SESSION['id-empresa']; ?>">
         </form>
         
     </div>
@@ -125,7 +122,3 @@
 
 </html>
 
-<?php
- //$date = date("Y-m-d", strtotime($_GET['birthdate'])); //converte para tipo date mysqli_query($conexao, "INSERT INTO tabela (birthday) VALUES ($date)");
-
-?>

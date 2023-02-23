@@ -5,17 +5,17 @@
     if (isset($_POST['submit'])) {
       
        
-        $id = $_POST['id'];
+        $id = intval($_POST['id']);
         $descricao = $_POST['descricao'];
-        $custo = $_POST['custo'];
-        $venda = $_POST['venda'];
-        $estoqueMinimo = $_POST['estoque-minimo'];
-        $estoqueAtual = $_POST['estoque-atual'];
+        $custo = floatval($_POST['custo']);
+        $venda = floatval($_POST['venda']);
+        $estoqueMinimo = intval($_POST['estoque-minimo']);
+        $estoqueAtual = intval($_POST['estoque-atual']);
         $codigoBarra = $_POST['codigo-barra'];
-        $fornecedor = isset($_POST["fornecedor"]) ? $_POST["fornecedor"] : 0;
+        $fornecedor = intval(isset($_POST["fornecedor"])) ? $_POST["fornecedor"] : 0;
         $marca = $_POST['marca'];
         $modelo = $_POST['modelo'];
-        $peso = $_POST['peso'];
+        $peso = floatval($_POST['peso']);
         $observacoes = $_POST['observacoes'];
 
         

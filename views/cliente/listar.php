@@ -37,6 +37,8 @@
                     <th scope="col">Telefone</th>
                     <th scope="col">Endereço</th>
                     <th scope="col">Ponto de Referência</th>
+                    <th scope="col">Registro(Criado)</th>
+                    <th scope="col">Registro(Atualizado)</th>
                     <th scope="col">Fiado</th>
                     <?php
                         if ($_SESSION['cliente-cadastrar']) { ?>
@@ -59,6 +61,7 @@
                             echo "<td>" . $dados_cliente['rua'] . "</td>";
                             echo "<td>" . $dados_cliente['referencia'] . "</td>";
                             echo "<td>" . $dados_cliente['criado-em'] . "</td>";
+                            echo "<td>" . $dados_cliente['atualizado-em'] . "</td>";
                             $fiado = $dados_cliente['fiado'] == 1 ? "SIM" : "NÃO";
                             echo "<td>" . $fiado . "</td>";
                                 

@@ -5,7 +5,7 @@
     if (isset($_POST['submit'])) {
       
        
-        $id = $_POST['id'];
+        $id = intval($_POST['id']);
         $empresa = $_POST['empresa'];
         $cnpj = $_POST['cnpj'];
         $telefone = $_POST['telefone'];

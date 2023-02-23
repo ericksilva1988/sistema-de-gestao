@@ -5,7 +5,7 @@
     if (isset($_POST['submit'])) {
       
        
-        $id = $_POST['id'];
+        $id = intval($_POST['id']);
         $nome = $_POST['nome'];
         $cargo = $_POST['cargo'];
         $login = $_POST['login'];

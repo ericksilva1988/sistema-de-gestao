@@ -11,7 +11,7 @@
         $representacao = $_GET['representacao'];
         $representante = $_GET['representante'];
         $observacoes = $_GET['observacoes'];
-        $idEmpresa = $_GET['id-empresa'];
+        $idEmpresa = intval($_GET['id-empresa']);
                       
         $database = new db();
 
