@@ -13,6 +13,7 @@
         $representacao = $_POST['representacao'];
         $representante = $_POST['representante'];
         $observacoes = $_POST['observacoes'];
+        $atualizadoEm = $_POST['atualizado-em'];
 
         
         $database = new db();
@@ -20,7 +21,7 @@
         $conexao = $database-> conecta_mysql();
 
         $queryUpdate = "update fornecedor set empresa='$empresa',cnpj='$cnpj',telefone='$telefone',email='$email',
-        representacao='$representacao',representante='$representante',observacoes='$observacoes' where `id`='$id'";
+        representacao='$representacao',representante='$representante',observacoes='$observacoes',`atualizado-em`='$atualizadoEm' where `id`='$id'";
 
         $result = mysqli_query ($conexao, $queryUpdate);
 

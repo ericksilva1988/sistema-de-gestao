@@ -59,6 +59,8 @@
                     <a href="listar.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
                 </div>
             </div>
+            <input type="hidden" name="criado-em" id="criado-em" 
+                        value=" <?php $hoje = date('Y-m-d H:i:s'); echo $hoje; ?> ">
             <input type="hidden" name="id-empresa" id="id-empresa" value="<?php echo $_SESSION['id-empresa']; ?>">
         </form>
     </div>

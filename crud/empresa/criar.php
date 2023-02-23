@@ -13,6 +13,7 @@
         $endereco = $_POST["endereco"];
         $referencia = $_POST["referencia"];
         $segmento = $_POST["segmento"];
+        $criadoEm = $_POST["criado-em"];
 
         //print_r($_GET);
                 
@@ -22,8 +23,8 @@
 
         $conexao = $database-> conecta_mysql();
 
-        $query = "insert into empresa (empresa,cnpj,nome,telefone,email,endereco,referencia,segmento) 
-        values ('$empresa','$cnpj','$nome','$telefone','$email','$endereco','$referencia','$segmento')";
+        $query = "insert into empresa (empresa,cnpj,nome,telefone,email,endereco,referencia,segmento,`criado-em`) 
+        values ('$empresa','$cnpj','$nome','$telefone','$email','$endereco','$referencia','$segmento','$criadoEm')";
 
         if (mysqli_query ($conexao, $query)) {
 

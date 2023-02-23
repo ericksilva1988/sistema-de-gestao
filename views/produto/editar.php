@@ -109,6 +109,8 @@
 
             <div class="row mt-5">
                 <div class="col">
+                    <input type="hidden" name="atualizado-em" id="atualizado-em" 
+                        value=" <?php $hoje = date('Y-m-d H:i:s'); echo $hoje; ?> ">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <button  type="submit" name="submit" class="btn btn-primary alinhar-a-direita ms-2">Alterar</button>
                     <a href="lista.php" class="btn btn-light alinhar-a-direita">Cancelar</a>

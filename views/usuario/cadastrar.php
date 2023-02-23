@@ -163,6 +163,8 @@
                     <a href="lista.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
                 </div>
             </div>
+            <input type="hidden" name="criado-em" id="criado-em" 
+                        value=" <?php $hoje = date('Y-m-d H:i:s'); echo $hoje; ?> ">
         </form>
         
     </div>

@@ -14,6 +14,7 @@
         $referencia = $_POST['referencia'];
         $segmento = $_POST['segmento'];
         $endereco = $_POST['endereco'];
+        $atualizadoEm = $_POST['atualizado-em'];
 
         
         $database = new db();
@@ -21,7 +22,7 @@
         $conexao = $database-> conecta_mysql();
 
         $queryUpdate = "update empresa set cnpj='$cnpj',empresa='$empresa',nome='$nome',endereco='$endereco',
-        email='$email',telefone='$telefone',referencia='$referencia',segmento='$segmento' where `id`='$id'";
+        email='$email',telefone='$telefone',referencia='$referencia',segmento='$segmento',`atualizado-em`='$atualizadoEm' where `id`='$id'";
 
         $result = mysqli_query ($conexao, $queryUpdate);
 

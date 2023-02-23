@@ -43,6 +43,8 @@
                     <th scope="col">Representação</th>
                     <th scope="col">Representante</th>
                     <!-- <th scope="col">Observações</th> -->
+                    <th scope="col">Registro(Criado)</th>
+                    <th scope="col">Registro(Alterado)</th>
                     <?php
                         if ($_SESSION['usuario-cadastrar']) { ?>
                             <th scope="col">Ações</th>
@@ -67,6 +69,8 @@
                             echo "<td>" . $dados_fornecedor['representacao'] . "</td>";
                             echo "<td>" . $dados_fornecedor['representante'] . "</td>";
                             // echo "<td>" . $dados_fornecedor['observacoes'] . "</td>";
+                            echo "<td>" . $dados_fornecedor['criado-em'] . "</td>";
+                            echo "<td>" . $dados_fornecedor['atualizado-em'] . "</td>";
                                                         
                             if ($_SESSION['usuario-cadastrar']) {
                                 echo "<td>

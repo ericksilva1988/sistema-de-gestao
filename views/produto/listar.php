@@ -43,6 +43,8 @@
                     <th scope="col">modelo</th>
                     <th scope="col">Peso</th>
                     <!-- <th scope="col">Obs</th> -->
+                    <th scope="col">Registro(Criado)</th>
+                    <th scope="col">Registro(Alterado)</th>
                     <?php
                         if ($_SESSION['estoque-cadastrar']) { ?>
                             <th scope="col">Ações</th>
@@ -87,6 +89,8 @@
                             echo "<td>" . $dados_produto['modelo'] . "</td>";
                             echo "<td>" . $dados_produto['peso'] . "</td>";
                             // echo "<td>" . $dados_produto['observacoes'] . "</td>";
+                            echo "<td>" . $dados_produto['criado-em'] . "</td>";
+                            echo "<td>" . $dados_produto['atualizado-em'] . "</td>";
                             
                                 if ($_SESSION['estoque-cadastrar']) { 
                                     echo "<td>
@@ -172,6 +176,8 @@
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
                                 <button  type="submit" name="submit" class="btn btn-primary alinhar-a-direita ms-2">Alterar</button>
                             </div>
+                            <input type="hidden" name="atualizado-em" id="atualizado-em" 
+                                value=" <?php $hoje = date('Y-m-d H:i:s'); echo $hoje; ?> ">
                         </form>
                     </div>
                 </div>

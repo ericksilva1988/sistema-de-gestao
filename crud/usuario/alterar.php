@@ -23,12 +23,14 @@
         $admin = isset($_POST["eh-admin"]) ? 1 : 0;
         $master = isset($_POST["eh-master"]) ? 1 : 0;
 
+        $atualizadoEm = $_POST["atualizado-em"];
+
         
         $database = new db();
 
         $conexao = $database-> conecta_mysql();
 
-        $queryUpdate = "update usuarios set nome='$nome',cargo='$cargo',login='$login',senha='$senha',`alterar-senha`='$alterarSenha',`usuario-visualizar`='$usuarioVisualizar',`usuario-cadastrar`='$usuarioCadastrar',`cliente-visualizar`='$clienteVisualizar',`cliente-cadastrar`='$clienteCadastrar',`caixa-visualizar`='$caixaVisualizar',`caixa-cadastrar`='$caixaCadastrar',`estoque-visualizar`='$estoqueVisualizar',`estoque-cadastrar`='$estoqueCadastrar',`eh-admin`='$admin',`eh-master`='$master' where `id`='$id'";
+        $queryUpdate = "update usuarios set nome='$nome',cargo='$cargo',login='$login',senha='$senha',`alterar-senha`='$alterarSenha',`usuario-visualizar`='$usuarioVisualizar',`usuario-cadastrar`='$usuarioCadastrar',`cliente-visualizar`='$clienteVisualizar',`cliente-cadastrar`='$clienteCadastrar',`caixa-visualizar`='$caixaVisualizar',`caixa-cadastrar`='$caixaCadastrar',`estoque-visualizar`='$estoqueVisualizar',`estoque-cadastrar`='$estoqueCadastrar',`eh-admin`='$admin',`eh-master`='$master',`atualizado-em`='$atualizadoEm' where `id`='$id'";
 
         $result = mysqli_query ($conexao, $queryUpdate);
 

@@ -12,13 +12,14 @@
         $representante = $_GET['representante'];
         $observacoes = $_GET['observacoes'];
         $idEmpresa = intval($_GET['id-empresa']);
+        $criadoEm = $_GET['criado-em'];
                       
         $database = new db();
 
         $conexao = $database-> conecta_mysql();
 
-        $query = "insert into fornecedor (empresa,cnpj,telefone,email,representacao,representante,observacoes,`id-empresa`) 
-        values ('$empresa','$cnpj','$telefone','$email','$representacao','$representante','$observacoes',$idEmpresa)";
+        $query = "insert into fornecedor (empresa,cnpj,telefone,email,representacao,representante,observacoes,`id-empresa`,`criado-em`) 
+        values ('$empresa','$cnpj','$telefone','$email','$representacao','$representante','$observacoes','$idEmpresa','$criadoEm')";
 
         if (mysqli_query ($conexao, $query)) {
 

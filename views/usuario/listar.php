@@ -56,6 +56,8 @@
                     <th scope="col">Senha</th>
                     <th scope="col">É admin</th>
                     <th scope="col">É master</th>
+                    <th scope="col">Registro(Criado)</th>
+                    <th scope="col">Registro(Alterado)</th>
                     <?php if ($_SESSION['usuario-cadastrar']) { ?>
                         <th scope="col">Ação</th>
                     <?php } ?>
@@ -78,6 +80,8 @@
                             echo "<td>" . $admin . "</td>";
                     $master = $user_data['eh-master'] == 1 ? "SIM" : "NÃO";
                             echo "<td>" . $master . "</td>";
+                    echo "<td>" . $user_data['criado-em'] . "</td>";
+                    echo "<td>" . $user_data['atualizado-em'] . "</td>";
                     
                             if ($_SESSION['usuario-cadastrar']) {
 

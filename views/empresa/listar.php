@@ -41,6 +41,8 @@
                     <th scope="col">Telefone</th>
                     <th scope="col">Referência</th>
                     <th scope="col">Segmento</th>
+                    <th scope="col">Registro(Criado)</th>
+                    <th scope="col">Registro(Alterado)</th>
                     <?php
                         if ($_SESSION['usuario-cadastrar']) { ?>
                             <th scope="col">Ações</th>
@@ -65,6 +67,8 @@
                             echo "<td>" . $dados_empresa['telefone'] . "</td>";
                             echo "<td>" . $dados_empresa['referencia'] . "</td>";
                             echo "<td>" . $dados_empresa['segmento'] . "</td>";
+                            echo "<td>" . $dados_empresa['criado-em'] . "</td>";
+                            echo "<td>" . $dados_empresa['atualizado-em'] . "</td>";
                                                         
                             if ($_SESSION['usuario-cadastrar']) {
                                 echo "<td>

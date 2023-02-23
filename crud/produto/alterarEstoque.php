@@ -4,10 +4,12 @@
 
     if (isset($_POST['submit'])) {
 
+
         $id = $_POST['id-produto'];
         $estoqueAtual = $_POST['estoque-atual'];
         $novoEstoque = isset($_POST["novo-estoque"]) ? $_POST["novo-estoque"] : null;
         $operacao = $_POST['operacao'];
+        $atualizadoEm = $_POST['atualizado-em'];
 
         $resultadoOperacao = null;
 
@@ -26,7 +28,7 @@
 
         $conexao = $database-> conecta_mysql();
 
-        $sqlUsuario = "Update produtos set `estoque-atual` = $resultadoOperacao where id = $id;";
+        $sqlUsuario = "Update produtos set `estoque-atual` = $resultadoOperacao, `atualizado-em`='$atualizadoEm' where id = $id;";
 
 
         $result = mysqli_query ($conexao, $sqlUsuario);

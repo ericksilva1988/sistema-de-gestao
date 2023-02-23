@@ -20,7 +20,8 @@
         $estoqueCadastrar = isset($_POST["estoque-cadastrar"]) ? 1 : 0;
         $admin = isset($_POST["eh-admin"]) ? 1 : 0;
         $master = isset($_POST["eh-master"]) ? 1 : 0;
-        $idEmpresa = intval($_POST['id-empresa']);   
+        $idEmpresa = intval($_POST['id-empresa']);
+        $criadoEm = $_POST['criado-em'];   
 
                 
           
@@ -32,9 +33,9 @@
         $conexao = $database-> conecta_mysql();
 
         $query = "insert into usuarios(nome,cargo,login,senha,`alterar-senha`,`usuario-visualizar`,`usuario-cadastrar`,
-        `cliente-visualizar`,`cliente-cadastrar`,`caixa-visualizar`,`caixa-cadastrar`,`estoque-visualizar`,`estoque-cadastrar`,`eh-admin`,`eh-master`,`id-empresa`) 
+        `cliente-visualizar`,`cliente-cadastrar`,`caixa-visualizar`,`caixa-cadastrar`,`estoque-visualizar`,`estoque-cadastrar`,`eh-admin`,`eh-master`,`id-empresa`,`criado-em`) 
         values ('$nome','$cargo','$login','$senha','$alterarSenha','$usuarioVisualizar','$usuarioCadastrar','$clienteVisualizar',
-        '$clienteCadastrar','$caixaVisualizar','$caixaCadastrar','$estoqueVisualizar','$estoqueCadastrar','$admin','$master','$idEmpresa')";
+        '$clienteCadastrar','$caixaVisualizar','$caixaCadastrar','$estoqueVisualizar','$estoqueCadastrar','$admin','$master','$idEmpresa','$criadoEm')";
 
         if (mysqli_query ($conexao, $query)) {
 
