@@ -1,6 +1,6 @@
 <?php include"../../sessao/validarSessao.php"; ?>
 
-<?php include"../../componentes/usuario/head.php"; ?>
+<?php include"../../componentes/head.php"; ?>
 
     <?php 
 

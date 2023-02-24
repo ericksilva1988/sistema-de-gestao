@@ -2,7 +2,7 @@
 
 <?php include_once "../../crud/cliente/criar.php"; ?>
 
-<?php include "../../componentes/cliente/head.php"; ?>
+<?php include "../../componentes/head.php"; ?>
 
 <?php date_default_timezone_set('America/Sao_paulo'); ?>
 

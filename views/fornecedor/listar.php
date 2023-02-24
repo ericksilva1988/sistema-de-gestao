@@ -2,7 +2,7 @@
 
 <?php include"../../crud/fornecedor/lista.php"; ?>
 
-<?php include"../../componentes/fornecedor/head.php";  ?>
+<?php include"../../componentes/head.php";  ?>
 
    
     <!-- /Menu superior-->
@@ -78,7 +78,7 @@
                                     </a>
                                     
                                     <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' 
-                                    onclick='passaDadosModal($dados_fornecedor[id], `$dados_fornecedor[empresa]`)' title='Excluir fornecedor'>
+                                    onclick='passaDadosModal($dados_fornecedor[id], `$dados_fornecedor[empresa]`, `fornecedor`)' title='Excluir fornecedor'>
                                     
                                     <img src='../../img/excluir.svg'>
                                     </a>
@@ -102,7 +102,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Tem certeza que deseja excluir o fornecedor <strong id="nome-fornecedor"></strong>?
+                        Tem certeza que deseja excluir o fornecedor <strong id="nome-entidade"></strong>?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
@@ -115,7 +115,7 @@
 
     <!-- /Modal -->
 
-        <?php include"../../js/fornecedor/lista.php"; ?>
+        <?php include "../../componentes/footer.php"; ?>
 </body>
 
 </html>

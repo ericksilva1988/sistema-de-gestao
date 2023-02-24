@@ -2,7 +2,7 @@
 
 <?php include_once"../../crud/fornecedor/criar.php"; ?>
 
-<?php include"../../componentes/fornecedor/head.php";  ?>
+<?php include"../../componentes/head.php";  ?>
 
     <!-- /Menu superior-->
 

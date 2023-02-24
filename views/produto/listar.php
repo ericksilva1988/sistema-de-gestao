@@ -2,7 +2,7 @@
 
 <?php include"../../crud/produto/lista.php"; ?>
 
-<?php include"../../componentes/produto/head.php"; ?>
+<?php include"../../componentes/head.php"; ?>
 
     
     <!-- /Menu superior-->
@@ -100,7 +100,7 @@
                                         <a class='btn btn-secondary btn-sm' href='../../views/produto/editar.php?id=$dados_produto[id]' title='Editar produto'>
                                           <img src='../../img/editar.svg'>
                                         </a>
-                                        <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='modalDeletarItem($dados_produto[id], `$dados_produto[descricao]`)' title='Excluir produto'>
+                                        <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='modalDeletarItem($dados_produto[id], `$dados_produto[descricao]`,`produto`)' title='Excluir produto'>
                                             <img src='../../img/excluir.svg'>
                                         </a>
 
@@ -122,7 +122,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Tem certeza que deseja excluir o produto <strong id="descricao-produto"></strong>?
+                        Tem certeza que deseja excluir o produto <strong id="nome-entidade"></strong>?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
@@ -187,7 +187,7 @@
 
     <!-- /Modal -->
 
-        <?php include"../../js/produto/lista.php"; ?>
+        <?php include "../../componentes/footer.php"; ?>
 </body>
 
 </html>

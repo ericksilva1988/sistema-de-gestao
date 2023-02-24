@@ -2,7 +2,7 @@
 
 <?php include"../../crud/cliente/lista.php"; ?>
 
-<?php include"../../componentes/cliente/head.php"; ?>
+<?php include"../../componentes/head.php"; ?>
 
     
     <!-- /Menu superior-->

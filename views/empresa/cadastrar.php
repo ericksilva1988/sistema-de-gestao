@@ -2,7 +2,7 @@
 
 <?php include_once"../../crud/empresa/criar.php"; ?>
 
-<?php include"../../componentes/empresa/head.php";  ?>
+<?php include"../../componentes/head.php";  ?>
 
 
 

@@ -2,7 +2,7 @@
 
 <?php include"../../crud/cliente/recuperar.php"; ?>
 
-<?php include"../../componentes/cliente/head.php"; ?>
+<?php include"../../componentes/head.php"; ?>
 
 
     

@@ -2,7 +2,7 @@
 
 <?php include"../../crud/usuario/lista.php"; ?>
 
-<?php include"../../componentes/usuario/head.php"; ?>
+<?php include"../../componentes/head.php"; ?>
 
     <?php 
 
@@ -93,7 +93,7 @@
                                     <a class='btn btn-secondary btn-sm' href='../../views/usuario/editar.php?id=$user_data[id]' title='Editar usuario'>
                                         <img src='../../img/editar.svg'>
                                     </a>
-                                    <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($user_data[id], `$user_data[nome]`)' title='Excluir usuario'>
+                                    <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' onclick='passaDadosModal($user_data[id], `$user_data[nome]`,`usuario`)' title='Excluir usuario'>
                                         <img src='../../img/excluir.svg'>
                                     </a>
 
@@ -116,7 +116,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Tem certeza que deseja excluir o usuário <strong id="nome-usuario"></strong>?
+                        Tem certeza que deseja excluir o usuário <strong id="nome-entidade"></strong>?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
@@ -129,7 +129,7 @@
     
     <!-- /Modal -->
 
-    <?php include"../../js/usuario/lista.php"; ?>
+    <?php include "../../componentes/footer.php"; ?>
     
 </body>
 

@@ -2,7 +2,7 @@
 
 <?php include"../../crud/empresa/lista.php"; ?>
 
-<?php include"../../componentes/empresa/head.php";  ?>
+<?php include"../../componentes/head.php";  ?>
 
    
     
@@ -77,7 +77,7 @@
                                     </a>
                                     
                                     <a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalPadrao' 
-                                    onclick='passaDadosModal($dados_empresa[id], `$dados_empresa[empresa]`)' title='Excluir empresa'>
+                                    onclick='passaDadosModal($dados_empresa[id], `$dados_empresa[empresa]`,`empresa`)' title='Excluir empresa'>
                                     
                                     <img src='../../img/excluir.svg'>
                                     </a>
@@ -101,7 +101,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Tem certeza que deseja excluir a empresa <strong id="nome-empresa"></strong>?
+                        Tem certeza que deseja excluir a empresa <strong id="nome-entidade"></strong>?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
@@ -114,7 +114,7 @@
 
     <!-- /Modal -->
 
-        <?php include"../../js/empresa/lista.php"; ?>
+        <?php include "../../componentes/footer.php"; ?>
 </body>
 
 </html>

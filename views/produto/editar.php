@@ -2,7 +2,7 @@
 
 <?php  include "../../crud/produto/recuperar.php"; ?>
 
-<?php include"../../componentes/produto/head.php"; ?>
+<?php include"../../componentes/head.php"; ?>
 
     <!-- /Menu superior-->
 

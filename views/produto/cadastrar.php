@@ -2,7 +2,7 @@
 
 <?php include"../../crud/produto/criar.php"; ?>
 
-<?php include"../../componentes/produto/head.php"; ?>
+<?php include"../../componentes/head.php"; ?>
 
 <?php 
     
