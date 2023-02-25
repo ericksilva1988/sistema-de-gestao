@@ -16,8 +16,14 @@
     .align-right {
         text-align: right;
     }
+    .botoes-topo-mobile {
+        display: none;
+    }
 
     @media (max-width: 600px) {
+        .botoes-topo-mobile {
+            display: flex;
+        }
         td:first-child {
             width: 200px;
         }
@@ -55,9 +61,8 @@
 <?php if (!empty($_GET['codigo'])) {
     $codigo = $_GET['codigo'];
 }?>
-
 <div class="container mt-3">
-    <div class="my-3 row">
+    <div class="my-3 row botoes-topo-mobile">
         <div class="col d-grid">
             <button class="btn btn-secondary" type="button">Buscar produto</button>
         </div>
@@ -65,14 +70,18 @@
             <a href="./ler-codigo-barra.php" class="btn btn-secondary">Ler código de barra</a>
         </div>
     </div>
-    <div id="finalizacao-web" class="row mb-3 align-right">
-        <div id="valor-final" class="col">
+    <div id="finalizacao-web" class="row mb-3">
+        <div class="col">
+            <button class="btn btn-secondary" type="button">Buscar produto</button>
+            <a href="./ler-codigo-barra.php" class="btn btn-secondary">Ler código de barra</a>
+        </div>
+        <div id="valor-final" class="col align-right">
             <span>Total a pagar: <strong>R$ 200,00</strong></span>
             <button class="btn btn-primary ms-3" type="button">Finalizar compra</button>
         </div>
     </div>
 
-    <span>Código de barras: <?php echo $codigo ?></span>
+    <!-- <span>Código de barras: <?php echo $codigo ?></span> -->
 
     <table class="table table-striped">
         <thead>
@@ -82,13 +91,8 @@
                 <th>Valor total</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>Caneta</td>
-                <td>R$ 1,16</td>
-                <td>2X R$ 2,32</td>
-            </tr>
-
+        <tbody id="dados">
+           <!-- aqui ficarão os dados -->
         </tbody>
     </table>
 </div>
@@ -107,9 +111,44 @@
 
 </body>
 
+<script>
+    class ListaItens {
+        lista = []
+
+        adicionaItem (item) {
+            this.lista.push(item)
+        }
+
+        preencheTabela (tagHtml) {
+            this.lista.forEach(item => {
+                tagHtml.insertAdjacentHTML('beforeend', `<tr>
+                    <td>${item.descricao}</td>
+                    <td>${item.valorUni}</td>
+                    <td>${item.valorUni}</td>
+                </tr>`)
+            });
+        }
+    }
+
+    let novaCompra = new ListaItens()
+    let bodyTabela = document.querySelector('#dados')
+
+    let produto1 = {
+        id: 1,
+        descricao: 'caneta',
+        valorUni: 2
+    }
+    novaCompra.adicionaItem(produto1)
+    novaCompra.preencheTabela(bodyTabela)
+    
+    bodyTabela.innerHTML = ''
+    let produto2 = {
+        id: 2,
+        descricao: 'lapis',
+        valorUni: 5
+    }
+    novaCompra.adicionaItem(produto2)
+    novaCompra.preencheTabela(bodyTabela)
+
+</script>
 </html>
-
-<?php
-//$date = date("Y-m-d", strtotime($_GET['birthdate'])); //converte para tipo date mysqli_query($conexao, "INSERT INTO tabela (birthday) VALUES ($date)");
-
-?>
