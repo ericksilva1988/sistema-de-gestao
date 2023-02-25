@@ -40,12 +40,12 @@
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="estoque-minimo" class="form-label">Estoque mínimo:*</label>
                     <input type="text" class="form-control" id="estoque-minimo" name="estoque-minimo"
-                        placeholder="Informe a quantidade mínima do produto no estoque" />
+                        placeholder="Informe a quantidade mínima do produto no estoque" required/>
                 </div>
                 <div class="col-lg-6 col-md-12 mt-3">
                     <label for="estoque-atual" class="form-label">Estoque atual:*</label>
                     <input type="text" class="form-control" id="estoque-atual" name="estoque-atual"
-                        placeholder="Informe a quantidade de itens desse produto nesse momento" />
+                        placeholder="Informe a quantidade de itens desse produto nesse momento" required/>
                 </div>
             </div>
             <div class="row">
@@ -127,7 +127,9 @@
                         value=" <?php $hoje = date('Y-m-d H:i:s'); echo $hoje; ?> ">
         </form>
     </div>
-    <?php include"../../js/produto/recuperar.php"; ?>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -89,7 +89,8 @@
                             echo "<td>" . $dados_produto['modelo'] . "</td>";
                             echo "<td>" . $dados_produto['peso'] . "</td>";
                             // echo "<td>" . $dados_produto['observacoes'] . "</td>";
-                            echo "<td>" . $dados_produto['criado-em'] . "</td>";
+
+                            echo "<td>" . date_format(date_create($dados_produto['criado-em']), 'd/m/y H:i')  . "</td>";
                             echo "<td>" . $dados_produto['atualizado-em'] . "</td>";
                             
                                 if ($_SESSION['estoque-cadastrar']) { 
