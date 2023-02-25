@@ -9,7 +9,7 @@ class db
 
 	private $senha = '';
 
-	private $database = 'sistema-comercial';
+	private $database = 'isset';
 
 
 
