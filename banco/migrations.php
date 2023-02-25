@@ -26,5 +26,4 @@
     mysqli_query ($conexao, $criaTabelaCliente);
     mysqli_query ($conexao, $criarTabelaEmpresa);
     mysqli_query ($conexao, $criarTabelaEstado);
-
 ?>
