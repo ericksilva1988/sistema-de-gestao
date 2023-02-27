@@ -1,0 +1,49 @@
+#finalizacao-mobile {
+    display: none;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.botoes-topo-mobile {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .botoes-topo-mobile {
+        display: flex;
+    }
+
+    td:first-child {
+        width: 200px;
+    }
+
+    th:first-child {
+        width: 200px;
+    }
+
+    #finalizacao-web {
+        display: none;
+    }
+
+    #finalizacao-mobile {
+        display: initial;
+        position: fixed;
+        bottom: 0;
+    }
+
+    #finalizacao-mobile>button {
+        width: 100vw;
+        height: 56px;
+        border-radius: 0;
+    }
+
+    #finalizacao-mobile>#valor-final {
+        display: flex;
+        justify-content: center;
+        height: 56px;
+        padding-top: 16px;
+        background-color: lightgrey;
+    }
+}
