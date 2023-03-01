@@ -8,6 +8,10 @@
         padding-left: 24px;
         padding-right: 24px;
     }
+    #logo {
+        max-width: 180px;
+        margin: auto;
+    }
 }
 
 .container {
@@ -24,9 +28,8 @@
     border: none;
 }
 
-.card-img-top {
-    max-width: 250px;
+#logo {
+    max-width: 140px;
     margin: auto;
-    margin-top: 24px;
+    margin-top: 48px;
 }
-

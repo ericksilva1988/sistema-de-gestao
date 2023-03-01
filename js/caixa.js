@@ -1,4 +1,4 @@
-class Item {
+class ItemModel {
     
     // atributos do item da compra
     id
@@ -13,19 +13,27 @@ class Item {
     }
 }
 
-class ListaItens {
+class ListaModel {
 
-    // a classe ListaItens inicializa um array vazio chamado lista
+    // a classe ListaModel inicializa um array vazio chamado lista
     lista = []
 
     // o método adicionaItem recebe um objeto do tipo Item e adiciona no array lista
     adicionaItemNoArray(item) {
         this.lista.push(item)
     }
+}
+
+class ListaView {
+    novaLista
+
+    constructor (listaItens) {
+        this.novaLista = listaItens
+    }
 
     // o método preencheTabela é responsável por varrer o array lista e preencher a view/tela do usuário, nesse caso criando linhas na tabela lá no html
     preencheTabela(tagHtml) {
-        this.lista.forEach(item => {
+        this.novaLista.lista.forEach(item => {
             tagHtml.insertAdjacentHTML('beforeend', `<tr>
                 <td>${item.descricao}</td>
                 <td>${item.valorUni}</td>
@@ -34,26 +42,20 @@ class ListaItens {
         });
     }
 
+    // o método adicionaItemNaTabela recebe os parâmetros id, descrição e valorUni. Ele 
     adicionaItemNaTabela (id, descricao, valorUni) {
-        // let item = new Item(id, descricao, valorUni)
-        // novaCompra.adicionaItemNoArray(item)
-        // bodyTabela.innerHTML = ''
-        // novaCompra.preencheTabela(bodyTabela)
-        console.log(id, descricao, valorUni)
+        let item = new ItemModel(id, descricao, valorUni)
+        this.novaLista.adicionaItemNoArray(item)
+        tagTbody.innerHTML = ''
+        this.preencheTabela(tagTbody)
     }
 }
 
-// a variável novaCompra recebe uma instância de ListaItens, agora ela é um objeto que guarda uma lista vazia e possui os métodos de adicionar na lista e preencher a tabela html
-let novaCompra = new ListaItens()
+// a constante bodyTabela está selecionando a tag html <tbody> que possui o id='tbody', para que seja possível inserir linhas <tr> dentro dela
+const tagTbody = document.querySelector('#tbody')
 
-// a variável bodyTabela está selecionando a tag html <tbody> que possui o id='dados', para que seja possível inserir linhas <tr> dentro dela
-let bodyTabela = document.querySelector('#dados')
+// a constante novaCompra recebe uma instância de ListaItens, agora ela é um objeto que guarda uma lista vazia e possui os métodos de adicionar na lista
+const novaLista = new ListaModel()
 
-let produto1 = new Item(1, 'caneta', 2)
-novaCompra.adicionaItemNoArray(produto1)
-novaCompra.preencheTabela(bodyTabela)
-
-bodyTabela.innerHTML = ''
-let produto2 = new Item(2, 'lapis', 5)
-novaCompra.adicionaItemNoArray(produto2)
-novaCompra.preencheTabela(bodyTabela)
+// a constante view recebe uma instância de View, que possui métodos próprios para manipular a interface do usuário
+const view = new ListaView(novaLista)

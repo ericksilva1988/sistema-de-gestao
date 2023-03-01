@@ -105,7 +105,7 @@
                     <input type="hidden" name="atualizado-em" id="atualizado-em" 
                         value=" <?php $hoje = date('Y-m-d H:i:s'); echo $hoje; ?> ">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
-                    <button type="submit" name="submit" class="btn btn-primary alinhar-a-direita ms-2">Alterar</button>
+                    <button type="submit" name="submit" class="btn btn-success alinhar-a-direita ms-2">Alterar</button>
                     <a href="listar.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
                 </div>
             </div>

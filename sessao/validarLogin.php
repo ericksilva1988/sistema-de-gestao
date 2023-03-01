@@ -59,10 +59,7 @@
 				$_SESSION['eh-master'] = $row['eh-master'];
 				$_SESSION['eh-admin'] = $row['eh-admin'];
 
-				header('Location: sessao/usuario.php');
-
-
-
+				header('Location: views/caixa/listar.php');
 
 			}
 

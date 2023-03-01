@@ -104,7 +104,7 @@
             </div>
             <div class="row mt-5">
                 <div class="col">
-                    <button type="submit" name="submit" class="btn btn-primary alinhar-a-direita ms-2">Cadastrar</button>
+                    <button type="submit" name="submit" class="btn btn-success alinhar-a-direita ms-2">Cadastrar</button>
                     <a href="listar.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
                 </div>
             </div>

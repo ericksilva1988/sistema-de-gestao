@@ -10,18 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="css/index.css" rel="stylesheet">
-    <style type="text/css">
-        .btn-danger{
-            
-        }
-    </style>
     <title>Login - ISSET</title>
 </head>
 
 <body>
     <div class="container">
         <div class="card">
-            <img src="img/logo.png" class="card-img-top"
+            <img src="img/logo.png" id="logo"
                 alt="logo">
             
             <div class="card-body">
@@ -36,7 +31,7 @@
                         <input type="password" class="form-control" id="senha" name="senha">
                     </div>
                     <div class="d-grid gap-2 mb-5">
-                        <button type="submit" name="submit" class="btn btn-primary">Entrar</button>
+                        <button type="submit" name="submit" class="btn btn-success">Entrar</button>
                     </div>
                 </form>
             </div>

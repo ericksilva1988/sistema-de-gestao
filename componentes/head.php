@@ -1,4 +1,5 @@
-<?php date_default_timezone_set('America/Sao_paulo'); ?>
+<?php include("../../sessao/validarSessao.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,17 +10,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/base.css">
-    <title>ISSET</title>
+    <script src="../../js/ativaItemMenu.js"></script>
+    <title>ISSET - CYBER SYSTEN</title>
     <link rel="shortcut icon" type="imagem/x-icon" href="../../img/logo.png">
 </head>
 
-<body>
+<body onload="ativaItemMenu()">
     <!-- Menu superior -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="../../img/logo.png" class="card-img-top"
-                alt="logo" height="80">
+                <img src="../../img/logo.png" alt="logo" height="40">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -28,21 +29,71 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../sessao/usuario.php">Home</a>
+
+                    <?php
+
+                    if ($_SESSION['caixa-visualizar']) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/isset/views/caixa/listar.php"
+                                id="caixa">CAIXA</a>
+                        </li>
+                    <?php } ?>
+
+                    <?php
+
+                    if ($_SESSION['estoque-visualizar']) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/isset/views/produto/listar.php">ESTOQUE</a>
+                        </li>
+                    <?php } ?>
+
+                    <?php
+
+                    if ($_SESSION['estoque-visualizar']) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/isset/views/fornecedor/listar.php">FORNECEDOR</a>
+                        </li>
+                    <?php } ?>
+                    <?php
+
+                    if ($_SESSION['cliente-visualizar']) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/isset/views/cliente/listar.php">CLIENTE</a>
+                        </li>
+                    <?php } ?>
+
+                    <?php
+
+                    if ($_SESSION['usuario-visualizar']) { ?>
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/isset/views/usuario/listar.php">USUÁRIO</a>
+                        </li>
+
+                    <?php } ?>
+
+                    <?php
+                    if ($_SESSION['eh-master']) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/isset/views/empresa/listar.php">EMPRESA</a>
+                        </li>
+                    <?php } ?>
+
                     </li>
                     <li class="nav-item">
-                        <a data-bs-toggle='modal' data-bs-target='#modalSair' class="nav-link"
-                            href="../../sessao/encerrar.php">Sair</a>
+                        <a class="nav-link" id="btn-sair" data-bs-toggle='modal' data-bs-target='#modalSair'>SAIR</a>
                     </li>
 
                 </ul>
-                <p>
-                    <?php echo "Sistema Acessado: *" ?>
-                </p>
-                <p class=><b>
-                        <?php echo $_SESSION['login']; ?>
-                    </b></p>
+
+                <div class="row">
+                    <h5>
+                        <?php echo "Bem vindo " ?><b>
+                            <?php echo $_SESSION['login']; ?>
+                        </b>
+                    </h5>
+                </div>
+
             </div>
         </div>
     </nav>
@@ -63,12 +114,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <a href="../../sessao/encerrar.php">
-                        <button type="button" class="btn btn-danger">Sair</button>
-                    </a>
+                    <a href="../../index.php" class="btn btn-danger">Sair</a>
                 </div>
             </div>
         </div>
     </div>
     </div>
-    
+    <!-- /Modal -->
+    <!-- /Menu superior-->

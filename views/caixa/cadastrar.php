@@ -9,7 +9,7 @@
 <?php date_default_timezone_set('America/Sao_paulo'); ?>
 
 <!-- /Menu superior-->
-<div class="container mt-3">
+<div class="container mt-5">
     <form action="./cadastrar.php" method="GET">
         <div class="my-3 row botoes-topo-mobile">
             <div class="col-10">
@@ -17,7 +17,7 @@
                     placeholder="Buscar nome ou código de barras" aria-label="default input example">
             </div>
             <div class="col">
-                <button type="submit" class="btn btn-secondary">
+                <button type="submit" class="btn btn-success">
                     <img src='../../img/lupa.svg'>
                 </button>
                 <!-- <a href="./ler-codigo-barra.php" class="btn btn-secondary">||||</a> -->
@@ -26,12 +26,12 @@
     </form>
     <div id="finalizacao-web" class="row mb-3">
         <div class="col">
-            <button class="btn btn-secondary" type="button">Buscar produto</button>
-            <a href="./ler-codigo-barra.php" class="btn btn-secondary">Ler código de barra</a>
+            <button class="btn btn-outline-success" type="button">Buscar produto</button>
+            <a href="./ler-codigo-barra.php" class="btn btn-outline-success">Ler código de barra</a>
         </div>
         <div id="valor-final" class="col align-right">
             <span>Total a pagar: <strong>R$ 200,00</strong></span>
-            <button class="btn btn-primary ms-3" type="button">Finalizar compra</button>
+            <button class="btn btn-success ms-3" type="button">Finalizar compra</button>
         </div>
     </div>
 
@@ -45,7 +45,7 @@
                 <th>Valor total</th>
             </tr>
         </thead>
-        <tbody id="dados">
+        <tbody id="tbody">
             <!-- aqui ficarão os dados -->
         </tbody>
     </table>
@@ -55,7 +55,7 @@
     <div id="valor-final">
         <span>Total a pagar: <strong>R$ 200,00</strong></span>
     </div>
-    <button class="btn btn-primary" type="button">Finalizar compra</button>
+    <button class="btn btn-success" type="button">Finalizar compra</button>
 </div>
 
 
@@ -75,7 +75,12 @@
                             while ($dados = mysqli_fetch_assoc($result)) {
                                 echo "<tr>";
                                     echo "<td>".$dados['descricao']."</td>";
-                                    echo"<td><button type='button' class='btn btn-sm btn-secondary' onclick='novaCompra.adicionaItemNaTabela(".$dados['id'].",".$dados['descricao'].",".$dados['venda'].")'>Selecionar</button></td>";
+                                    echo"<td>
+                                        <button type='button' class='btn btn-sm btn-secondary'
+                                            onclick='view.adicionaItemNaTabela($dados[id], `$dados[descricao]`, $dados[venda])'>
+                                            Seleciona
+                                        </button>
+                                        </td>";
                                 echo "</tr>";
                             }
                         }

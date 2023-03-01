@@ -62,7 +62,7 @@
                 <div class="col">
                     <input type="hidden" name="criado-em" id="criado-em" 
                         value=" <?php $hoje = date('Y-m-d H:i:s'); echo $hoje; ?> ">
-                    <button type="submit" name="submit" class="btn btn-primary alinhar-a-direita ms-2">Cadastrar</button>
+                    <button type="submit" name="submit" class="btn btn-success alinhar-a-direita ms-2">Cadastrar</button>
                     <a href="listar.php" class="btn btn-light alinhar-a-direita">Cancelar</a>
                 </div>
             </div>

@@ -171,7 +171,7 @@
                 <div class="col">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <a href="usuario.php">
-                    <button type="submit" name="submit" class="btn btn-primary alinhar-a-direita ms-2">Voltar</button>
+                    <button type="submit" name="submit" class="btn btn-success alinhar-a-direita ms-2">Voltar</button>
                     </a>
                     
                 </div>
