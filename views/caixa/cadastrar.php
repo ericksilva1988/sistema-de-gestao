@@ -8,16 +8,37 @@
 
 <?php date_default_timezone_set('America/Sao_paulo'); ?>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    // Função para fazer a consulta assíncrona
+    function fazerConsulta() {
+        let termoDeBusca = $('#pesquisar').val();
+        $.ajax({
+            url: "../../crud/produto/buscarProduto.php?pesquisar=" + termoDeBusca,
+            type: "GET",
+            dataType: "json",
+            success: function (dados) {
+                // Imprime os resultados no console
+                console.log(dados);
+            },
+            error: function (jqXHR, status, error) {
+                console.log(jqXHR, status, error);
+            }
+        });
+    }
+</script>
+
 <!-- /Menu superior-->
 <div class="container mt-5">
-    <form action="./cadastrar.php" method="GET">
+    <form>
         <div class="my-3 row botoes-topo-mobile">
             <div class="col-10">
                 <input id="pesquisar" name="pesquisar" class="form-control" type="text"
                     placeholder="Buscar nome ou código de barras" aria-label="default input example">
             </div>
             <div class="col">
-                <button type="submit" class="btn btn-success">
+                <button type="button" class="btn btn-success" onclick="fazerConsulta()">
                     <img src='../../img/lupa.svg'>
                 </button>
                 <!-- <a href="./ler-codigo-barra.php" class="btn btn-secondary">||||</a> -->
@@ -74,8 +95,8 @@
                         if (!empty($_GET['pesquisar'])) {
                             while ($dados = mysqli_fetch_assoc($result)) {
                                 echo "<tr>";
-                                    echo "<td>".$dados['descricao']."</td>";
-                                    echo"<td>
+                                echo "<td>" . $dados['descricao'] . "</td>";
+                                echo "<td>
                                         <button type='button' class='btn btn-sm btn-secondary'
                                             onclick='view.adicionaItemNaTabela($dados[id], `$dados[descricao]`, $dados[venda])'>
                                             Seleciona
