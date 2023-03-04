@@ -8,27 +8,6 @@
 
 <?php date_default_timezone_set('America/Sao_paulo'); ?>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script>
-    // Função para fazer a consulta assíncrona
-    function fazerConsulta() {
-        let termoDeBusca = $('#pesquisar').val();
-        $.ajax({
-            url: "../../crud/produto/buscarProduto.php?pesquisar=" + termoDeBusca,
-            type: "GET",
-            dataType: "json",
-            success: function (dados) {
-                // Imprime os resultados no console
-                console.log(dados);
-            },
-            error: function (jqXHR, status, error) {
-                console.log(jqXHR, status, error);
-            }
-        });
-    }
-</script>
-
 <!-- /Menu superior-->
 <div class="container mt-5">
     <form>
@@ -90,7 +69,7 @@
             </div>
             <div class="modal-body">
                 <table class="table table-striped">
-                    <tbody>
+                    <tbody id="listaModal">
                         <?php
                         if (!empty($_GET['pesquisar'])) {
                             while ($dados = mysqli_fetch_assoc($result)) {
@@ -117,16 +96,43 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
-<?php
-if (!empty($_GET['pesquisar'])) {
-    echo "<script>
-            var modal = new bootstrap.Modal(document.getElementById('modalPadrao'))
-            modal.show()
-        </script>";
-}
-?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script src="../../js/caixa.js"></script>
+
+<script>
+    var modal = new bootstrap.Modal(document.getElementById('modalPadrao'))
+
+    // Função para fazer a consulta assíncrona
+    function fazerConsulta () {
+        let termoDeBusca = $('#pesquisar').val();
+        $.ajax({
+            url: "../../crud/produto/buscarProduto.php?pesquisar=" + termoDeBusca,
+            type: "GET",
+            dataType: "json",
+            success: function (dados) {
+                // Imprime os resultados no console
+                console.log(dados);
+                preencheModal(dados);
+                modal.show();
+            },
+            error: function (jqXHR, status, error) {
+                console.log(jqXHR, status, error);
+            }
+        });
+    }
+    function preencheModal (newArray) {
+        const listaModal = document.querySelector('#listaModal')
+        listaModal.innerHTML = '';
+        newArray.forEach(item => {
+            listaModal.insertAdjacentHTML('beforeend', `<tr>
+                <td>${item.descricao}</td>
+                <td>${item.venda}</td>
+                <td>${item.venda}</td>
+            </tr>`)
+        });
+    }
+</script>
 
 </body>
 
