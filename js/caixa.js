@@ -1,61 +1,90 @@
-class ItemModel {
-    
-    // atributos do item da compra
-    id
-    descricao
-    valorUni
-
-    // método construtor. Quando um Item for criado, ele espera os parâmetros id, descrição e valor, e ele retornará um objeto do tipo Item
-    constructor(id, descricao, valorUni) {
-        this.id = id
-        this.descricao = descricao
-        this.valorUni = valorUni
-    }
-}
-
 class ListaModel {
 
-    // a classe ListaModel inicializa um array vazio chamado lista
-    lista = []
+    constructor(novaLista) {
+        this.lista = novaLista
+    }
 
     // o método adicionaItem recebe um objeto do tipo Item e adiciona no array lista
-    adicionaItemNoArray(item) {
+    adicionaItem(item) {
         this.lista.push(item)
     }
 }
 
 class ListaView {
-    novaLista
 
-    constructor (listaItens) {
-        this.novaLista = listaItens
+    constructor(listaItens) {
+        this.lista = listaItens
     }
 
     // o método preencheTabela é responsável por varrer o array lista e preencher a view/tela do usuário, nesse caso criando linhas na tabela lá no html
     preencheTabela(tagHtml) {
-        this.novaLista.lista.forEach(item => {
+        this.lista.forEach(item => {
             tagHtml.insertAdjacentHTML('beforeend', `<tr>
                 <td>${item.descricao}</td>
-                <td>${item.valorUni}</td>
-                <td>${item.valorUni}</td>
+                <td>${item.venda}</td>
+                <td>${item.venda}</td>
             </tr>`)
         });
     }
 
-    // o método adicionaItemNaTabela recebe os parâmetros id, descrição e valorUni. Ele 
-    adicionaItemNaTabela (id, descricao, valorUni) {
-        let item = new ItemModel(id, descricao, valorUni)
-        this.novaLista.adicionaItemNoArray(item)
-        tagTbody.innerHTML = ''
-        this.preencheTabela(tagTbody)
+    adicionaItem(item, tagHtml) {
+        tagHtml.insertAdjacentHTML('beforeend', `<tr>
+                <td>${item.descricao}</td>
+                <td>${item.venda}</td>
+                <td>${item.venda}</td>
+            </tr>`)
+    }
+}
+
+class ListaController {
+
+    buscarProdutos(event) {
+
+        // evitando recarregamento da página
+        event.preventDefault()
+
+        // pegando o valor do input pesquisar
+        let termoDeBusca = $('#pesquisar').val()
+
+        // fazendo chamada AJAX para o banco
+        $.ajax({
+            url: "../../crud/produto/buscarProduto.php?pesquisar=" + termoDeBusca,
+            type: "GET",
+            dataType: "json",
+            success: function (dados) {
+                // guarda os dados numa variável lista
+                let lista = dados
+
+                // cria um array para interagir com o banco de dados
+                let listaModel = new ListaModel(lista)
+
+                // cria um objeto do tipo ListaView para manipular os dados na interface
+                let listaView = new ListaView(lista)
+
+                // cria um elemento modal
+                const modal = new bootstrap.Modal(document.getElementById('modalPadrao'))
+
+                // seleciona a tag que conterá a lista de itens no modal
+                const tagTbodyModal = document.querySelector('#listaModal')
+                
+                // zerando conteúdo da tabela do modal
+                tagTbodyModal.innerHTML = ''
+                
+                // preenche a tabela do modal
+                listaView.preencheTabela(tagTbodyModal)
+
+                // chama o modal
+                modal.show()
+            },
+            error: function (jqXHR, status, error) {
+                // imprime erro no console
+                console.log(jqXHR, status, error)
+            }
+        })
     }
 }
 
 // a constante bodyTabela está selecionando a tag html <tbody> que possui o id='tbody', para que seja possível inserir linhas <tr> dentro dela
 const tagTbody = document.querySelector('#tbody')
 
-// a constante novaCompra recebe uma instância de ListaItens, agora ela é um objeto que guarda uma lista vazia e possui os métodos de adicionar na lista
-const novaLista = new ListaModel()
-
-// a constante view recebe uma instância de View, que possui métodos próprios para manipular a interface do usuário
-const view = new ListaView(novaLista)
+const listaController = new ListaController()

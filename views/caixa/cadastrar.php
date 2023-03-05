@@ -2,28 +2,27 @@
 
 <?php include "../../componentes/head.php"; ?>
 
-<?php include "../../crud/produto/buscarProduto.php"; ?>
-
 <link rel="stylesheet" href="../../css/caixa.css">
 
 <?php date_default_timezone_set('America/Sao_paulo'); ?>
 
 <!-- /Menu superior-->
 <div class="container mt-5">
-    <form>
+    <form onsubmit="listaController.buscarProdutos(event)">
         <div class="my-3 row botoes-topo-mobile">
             <div class="col-10">
                 <input id="pesquisar" name="pesquisar" class="form-control" type="text"
                     placeholder="Buscar nome ou código de barras" aria-label="default input example">
             </div>
             <div class="col">
-                <button type="button" class="btn btn-success" onclick="fazerConsulta()">
+                <button type="submit" class="btn btn-success">
                     <img src='../../img/lupa.svg'>
                 </button>
                 <!-- <a href="./ler-codigo-barra.php" class="btn btn-secondary">||||</a> -->
             </div>
         </div>
     </form>
+    
     <div id="finalizacao-web" class="row mb-3">
         <div class="col">
             <button class="btn btn-outline-success" type="button">Buscar produto</button>
@@ -69,23 +68,7 @@
             </div>
             <div class="modal-body">
                 <table class="table table-striped">
-                    <tbody id="listaModal">
-                        <?php
-                        if (!empty($_GET['pesquisar'])) {
-                            while ($dados = mysqli_fetch_assoc($result)) {
-                                echo "<tr>";
-                                echo "<td>" . $dados['descricao'] . "</td>";
-                                echo "<td>
-                                        <button type='button' class='btn btn-sm btn-secondary'
-                                            onclick='view.adicionaItemNaTabela($dados[id], `$dados[descricao]`, $dados[venda])'>
-                                            Seleciona
-                                        </button>
-                                        </td>";
-                                echo "</tr>";
-                            }
-                        }
-                        ?>
-                    </tbody>
+                    <tbody id="listaModal"></tbody>
                 </table>
             </div>
         </div>
@@ -99,40 +82,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script src="../../js/caixa.js"></script>
-
-<script>
-    var modal = new bootstrap.Modal(document.getElementById('modalPadrao'))
-
-    // Função para fazer a consulta assíncrona
-    function fazerConsulta () {
-        let termoDeBusca = $('#pesquisar').val();
-        $.ajax({
-            url: "../../crud/produto/buscarProduto.php?pesquisar=" + termoDeBusca,
-            type: "GET",
-            dataType: "json",
-            success: function (dados) {
-                // Imprime os resultados no console
-                console.log(dados);
-                preencheModal(dados);
-                modal.show();
-            },
-            error: function (jqXHR, status, error) {
-                console.log(jqXHR, status, error);
-            }
-        });
-    }
-    function preencheModal (newArray) {
-        const listaModal = document.querySelector('#listaModal')
-        listaModal.innerHTML = '';
-        newArray.forEach(item => {
-            listaModal.insertAdjacentHTML('beforeend', `<tr>
-                <td>${item.descricao}</td>
-                <td>${item.venda}</td>
-                <td>${item.venda}</td>
-            </tr>`)
-        });
-    }
-</script>
 
 </body>
 
