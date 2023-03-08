@@ -16,23 +16,33 @@ class ListaView {
         this.lista = listaItens
     }
 
-    // o método preencheTabela é responsável por varrer o array lista e preencher a view/tela do usuário, nesse caso criando linhas na tabela lá no html
-    preencheTabela(tagHtml) {
+    // o método preencheTabelaModal é responsável por varrer o array lista e preencher a view/tela do usuário, nesse caso criando linhas na tabela lá no html
+    preencheTabelaModal(tagHtml) {
         this.lista.forEach(item => {
             tagHtml.insertAdjacentHTML('beforeend', `<tr>
                 <td>${item.descricao}</td>
-                <td>${item.venda}</td>
-                <td>${item.venda}</td>
+                <td>${item['estoque-atual']}</td>
+                <td>
+                    <button class="btn btn-secondary"
+                    onclick="listaViewTela.adicionaItemNaTela(${item.id},'${item.descricao}','${item.venda}','#tbody')">
+                        +
+                    </button>
+                </td>
             </tr>`)
         });
     }
 
-    adicionaItem(item, tagHtml) {
+    adicionaItemNaTela(id, descricao, venda, idTagHtml) {
+        const tagHtml = document.querySelector(idTagHtml)
+
         tagHtml.insertAdjacentHTML('beforeend', `<tr>
-                <td>${item.descricao}</td>
-                <td>${item.venda}</td>
-                <td>${item.venda}</td>
+                <td>${descricao}</td>
+                <td>${venda}</td>
+                <td>${venda}</td>
+                <td><button class="btn btn-danger">x</button></td>
             </tr>`)
+        
+        modal.hide()
     }
 }
 
@@ -61,9 +71,6 @@ class ListaController {
                 // cria um objeto do tipo ListaView para manipular os dados na interface
                 let listaView = new ListaView(lista)
 
-                // cria um elemento modal
-                const modal = new bootstrap.Modal(document.getElementById('modalPadrao'))
-
                 // seleciona a tag que conterá a lista de itens no modal
                 const tagTbodyModal = document.querySelector('#listaModal')
                 
@@ -71,7 +78,7 @@ class ListaController {
                 tagTbodyModal.innerHTML = ''
                 
                 // preenche a tabela do modal
-                listaView.preencheTabela(tagTbodyModal)
+                listaView.preencheTabelaModal(tagTbodyModal)
 
                 // chama o modal
                 modal.show()
@@ -87,4 +94,9 @@ class ListaController {
 // a constante bodyTabela está selecionando a tag html <tbody> que possui o id='tbody', para que seja possível inserir linhas <tr> dentro dela
 const tagTbody = document.querySelector('#tbody')
 
+// cria um elemento modal
+const modal = new bootstrap.Modal(document.getElementById('modalPadrao'))
+
 const listaController = new ListaController()
+
+const listaViewTela = new ListaView()

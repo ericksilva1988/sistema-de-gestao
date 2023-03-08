@@ -22,7 +22,7 @@
             </div>
         </div>
     </form>
-    
+
     <div id="finalizacao-web" class="row mb-3">
         <div class="col">
             <button class="btn btn-outline-success" type="button">Buscar produto</button>
@@ -42,6 +42,7 @@
                 <th>Descrição</th>
                 <th>Valor uni</th>
                 <th>Valor total</th>
+                <th></th>
             </tr>
         </thead>
         <tbody id="tbody">
@@ -68,6 +69,13 @@
             </div>
             <div class="modal-body">
                 <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Estoque</th>
+                            <th></th>
+                        </tr>
+                    </thead>
                     <tbody id="listaModal"></tbody>
                 </table>
             </div>
