@@ -8,7 +8,7 @@
 
 <!-- /Menu superior-->
 <div class="container mt-5">
-    <form onsubmit="listaController.buscarProdutos(event)">
+    <form onsubmit="listaController.buscaProdutos(event)">
         <div class="my-3 row botoes-topo-mobile">
             <div class="col-10">
                 <input id="pesquisar" name="pesquisar" class="form-control" type="text"
