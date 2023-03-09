@@ -137,6 +137,22 @@ class ListaController {
         })
 
     }
+
+    enviaNotaPorWhatsapp () {
+        let numero = '+5582996966317'
+        let nota = this.templateNota()
+        let apiWhatsapp = `https://api.whatsapp.com/send?phone=${numero}&text=${nota}`
+        console.log(apiWhatsapp)
+        window.location.href = apiWhatsapp
+    }
+
+    templateNota () {
+        return this.listaTelaModel.lista.map(item => {
+            return `
+                ${item.descricao} - R$ ${item.venda}
+            `
+        }).join('')
+    }
 }
 
 const modal = new bootstrap.Modal(document.getElementById('modalPadrao'))
