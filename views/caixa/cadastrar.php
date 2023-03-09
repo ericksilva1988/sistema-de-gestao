@@ -8,7 +8,7 @@
 
 <!-- /Menu superior-->
 <div class="container mt-5">
-    <form onsubmit="listaController.buscaProdutos(event)">
+    <form onsubmit="listaController.updateLista(event, 'modal')">
         <div class="my-3 row botoes-topo-mobile">
             <div class="col-10">
                 <input id="pesquisar" name="pesquisar" class="form-control" type="text"
@@ -41,11 +41,10 @@
             <tr>
                 <th>Descrição</th>
                 <th>Valor uni</th>
-                <th>Valor total</th>
                 <th></th>
             </tr>
         </thead>
-        <tbody id="tbody">
+        <tbody id="tBodyTela">
             <!-- aqui ficarão os dados -->
         </tbody>
     </table>
@@ -53,7 +52,7 @@
 
 <div id="finalizacao-mobile">
     <div id="valor-final">
-        <span>Total a pagar: <strong>R$ 200,00</strong></span>
+        <span>Total a pagar: <strong>R$ <span id="total">0.00</span></strong></span>
     </div>
     <button class="btn btn-success" type="button">Finalizar compra</button>
 </div>
@@ -76,7 +75,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="listaModal"></tbody>
+                    <tbody id="tBodyModal"></tbody>
                 </table>
             </div>
         </div>

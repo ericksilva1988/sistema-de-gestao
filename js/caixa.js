@@ -8,50 +8,57 @@ class ListaModel {
     adicionaItem(item) {
         this.lista.push(item)
     }
+
+    updateLista(novaLista) {
+        this.lista = novaLista
+    }
 }
 
 class ListaView {
 
-    constructor(listaItens = []) {
-        this.lista = listaItens
+    templateModal(model) {
+        return model.lista.map(item => {
+            return `
+                <tr>
+                    <td>${item.descricao}</td>
+                    <td>${item['estoque-atual']}</td>
+                    <td>
+                        <button class="btn btn-secondary"
+                        onclick='listaController.adicionaItem(${JSON.stringify(item)})'>
+                            +
+                        </button>
+                    </td>
+                </tr>
+            `
+        }).join('')
     }
 
-    adicionaItem(item) {
-        this.lista.push(item)
+    updateModal(model) {
+        const tagTbodyModal = document.querySelector('#tBodyModal')
+        tagTbodyModal.innerHTML = this.templateModal(model)
+        modal.show()
     }
 
-    // o método preencheTabelaModal é responsável por varrer o array lista e preencher a view/tela do usuário, nesse caso criando linhas na tabela lá no html
-    preencheTabelaModal(lista) {
-        // seleciona a tag que conterá a lista de itens no modal
-        const tagTbodyModal = document.querySelector('#listaModal')
-
-        // zerando conteúdo da tabela do modal
-        tagTbodyModal.innerHTML = ''
-
-        lista.forEach(item => {
-            tagTbodyModal.insertAdjacentHTML('beforeend', `<tr>
-                <td>${item.descricao}</td>
-                <td>${item['estoque-atual']}</td>
-                <td>
-                    <button class="btn btn-secondary"
-                    onclick='listaController.adicionaItem(${JSON.stringify(item)})'>
-                        +
-                    </button>
-                </td>
-            </tr>`)
-        });
+    templateTela(model) {
+        return model.lista.map((item, index) => {
+            return `
+                <tr>
+                    <td>${item.descricao}</td>
+                    <td>${item.venda}</td>
+                    <td>
+                        <button class="btn btn-danger"
+                        onclick='listaController.removeItem(${item.venda},${index})'>
+                            x
+                        </button>
+                    </td>
+                </tr>
+            `
+        }).join('')
     }
 
-    adicionaItemNaTela(item) {
-        const tagHtml = document.querySelector('#tbody')
-
-        tagHtml.insertAdjacentHTML('beforeend', `<tr>
-                <td>${item.descricao}</td>
-                <td>${item.venda}</td>
-                <td>${item.venda}</td>
-                <td><button class="btn btn-danger">x</button></td>
-            </tr>`)
-
+    updateTela(model) {
+        const tagTbodyTela = document.querySelector('#tBodyTela')
+        tagTbodyTela.innerHTML = this.templateTela(model)
         modal.hide()
     }
 }
@@ -59,49 +66,79 @@ class ListaView {
 class ListaController {
 
     constructor() {
-        this.listaModel = new ListaModel()
-        this.listaView = new ListaView()
+        this.listaModalModel = new ListaModel()
+        this.listaTelaModel = new ListaModel()
+
+        this.listaModalView = new ListaView()
+        this.listaTelaView = new ListaView()
+
+        this.total = 0.0
+    }
+
+    updateValorTotal() {
+        const tagHtmlTotal = document.querySelector('#total')
+        tagHtmlTotal.innerHTML = this.total.toFixed(2)
+    }
+
+    somaValor(valor) {
+        this.total += parseFloat(valor)
+    }
+
+    subtraiValor(valor) {
+        this.total -= parseFloat(valor)
     }
 
     adicionaItem(item) {
-        this.listaModel.adicionaItem(item)
-        this.listaView.adicionaItem(item)
-        this.listaView.adicionaItemNaTela(item)
+        this.listaTelaModel.adicionaItem(item)
+        this.listaTelaView.updateTela(this.listaTelaModel)
+        this.somaValor(item.venda)
+        this.updateValorTotal()
     }
 
-    buscaProdutos(event) {
+    removeItem(valor, index) {
+        this.listaTelaModel.lista.splice(index, 1)
+        this.listaTelaView.updateTela(this.listaTelaModel)
+        this.subtraiValor(valor)
+        this.updateValorTotal()
+    }
 
+    async updateLista(event) {
         // evitando recarregamento da página
         event.preventDefault()
 
+        var dados = await this.fazerConsulta()
+
+        if (dados.length === 1) {
+            this.adicionaItem(dados[0])
+        }
+        else {
+            this.listaModalModel.updateLista(dados)
+            this.listaModalView.updateModal(this.listaModalModel)
+        }
+    }
+
+    fazerConsulta() {
         // pegando o valor do input pesquisar
         let termoDeBusca = $('#pesquisar').val()
-
         // fazendo chamada AJAX para o banco
-        $.ajax({
-            url: "../../crud/produto/buscarProduto.php?pesquisar=" + termoDeBusca,
-            type: "GET",
-            dataType: "json",
-            success: function (dados) {
-
-                // cria um objeto do tipo ListaView para manipular os dados na interface
-                let listaView = new ListaView()
-
-                // preenche a tabela do modal
-                listaView.preencheTabelaModal(dados)
-
-                // chama o modal
-                modal.show()
-            },
-            error: function (jqXHR, status, error) {
-                // imprime erro no console
-                console.log(jqXHR, status, error)
-            }
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                url: "../../crud/produto/buscarProduto.php?pesquisar=" + termoDeBusca,
+                type: "GET",
+                dataType: "json",
+                success: function (dados) {
+                    resolve(dados)
+                },
+                error: function (jqXHR, status, error) {
+                    // imprime erro no console
+                    reject(jqXHR, status, error)
+                }
+            })
         })
+
     }
 }
 
-// cria um elemento modal
 const modal = new bootstrap.Modal(document.getElementById('modalPadrao'))
 
 const listaController = new ListaController()
