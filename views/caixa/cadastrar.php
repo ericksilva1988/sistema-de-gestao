@@ -8,7 +8,7 @@
 
 <!-- /Menu superior-->
 <div class="container mt-5">
-    <form onsubmit="listaController.updateLista(event, 'modal')">
+    <form onsubmit="listaController.updateLista(event)">
         <div class="my-3 row botoes-topo-mobile">
             <div class="col-10">
                 <input id="pesquisar" name="pesquisar" class="form-control" type="text"
@@ -54,7 +54,7 @@
     <div id="valor-final">
         <span>Total a pagar: <strong>R$ <span id="total">0.00</span></strong></span>
     </div>
-    <button class="btn btn-success" type="button">Finalizar compra</button>
+    <button class="btn btn-success" type="button" onclick="listaController.enviaNotaPorWhatsapp()">Finalizar compra</button>
 </div>
 
 

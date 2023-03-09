@@ -139,19 +139,22 @@ class ListaController {
     }
 
     enviaNotaPorWhatsapp () {
-        let numero = '+5582996966317'
+        let numero = '+5582982011848'
         let nota = this.templateNota()
         let apiWhatsapp = `https://api.whatsapp.com/send?phone=${numero}&text=${nota}`
-        console.log(apiWhatsapp)
         window.location.href = apiWhatsapp
     }
 
     templateNota () {
-        return this.listaTelaModel.lista.map(item => {
-            return `
-                ${item.descricao} - R$ ${item.venda}
-            `
-        }).join('')
+        let lista = ''
+        const empresa = 'Mercadinho Compre Bem'
+        let nota = ''
+        for (let i = 0; i < this.listaTelaModel.lista.length; i++) {
+            lista += `${this.listaTelaModel.lista[i].descricao}%20-%20R$%20${this.listaTelaModel.lista[i].venda}%0A`
+        }
+        nota = `${empresa}%0A%0A${lista}%0ATotal%20-%20R$%20${this.total}`
+
+        return nota
     }
 }
 
